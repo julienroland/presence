@@ -16,6 +16,7 @@ class CreateCoursTable extends Migration {
 			$table->increments('id');
 			$table->string('nom');
 			$table->integer('anneeLevel_id');
+			$table->integer('options_id');
 			
 			$table->timestamps();
 		});

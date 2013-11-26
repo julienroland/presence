@@ -16,8 +16,6 @@ class CreateSceancesTable extends Migration {
 			$table->increments('id');
 			$table->timestamps('date_start');
 			$table->timestamps('date_end');
-			$table->integer('repetition');
-			$table->integer('for');
 			$table->integer('cours_id');
 			
 			$table->timestamps();
