@@ -14,8 +14,8 @@ class CreateSceancesTable extends Migration {
 	{
 		Schema::create('sceances', function(Blueprint $table) {
 			$table->increments('id');
-			$table->timestamps('date_start');
-			$table->timestamps('date_end');
+			$table->string('date_start');
+			$table->string('date_end');
 			$table->integer('cours_id');
 			
 			$table->timestamps();

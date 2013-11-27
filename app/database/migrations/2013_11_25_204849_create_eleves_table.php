@@ -17,7 +17,6 @@ class CreateElevesTable extends Migration {
 			$table->string('nom');
 			$table->string('prenom');
 			$table->string('email');
-			$table->string('mdp');
 			$table->string('photo');
 			$table->integer('groupe_id');
 			$table->integer('presence_id');
