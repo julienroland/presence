@@ -19,7 +19,6 @@ class CreateElevesTable extends Migration {
 			$table->string('email');
 			$table->string('photo');
 			$table->integer('groupe_id');
-			$table->integer('presence_id');
 			$table->integer('annees_encours_id');
 			$table->timestamps();
 		});
