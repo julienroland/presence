@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "38b6093c0260d6265ca67797d9e6fa42",
+    "hash": "c505dc87fd0d240713275604b4899d9f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -51,6 +51,56 @@
                 "preload"
             ],
             "time": "2013-06-24 22:58:34"
+        },
+        {
+            "name": "cviebrock/eloquent-sluggable",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cviebrock/eloquent-sluggable.git",
+                "reference": "53fdc8213681798462940879a0e68710e449b002"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/53fdc8213681798462940879a0e68710e449b002",
+                "reference": "53fdc8213681798462940879a0e68710e449b002",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "4.0.*",
+                "illuminate/database": "4.0.*",
+                "illuminate/support": "4.0.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "2.0.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Cviebrock\\EloquentSluggable": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin Viebrock",
+                    "email": "colin@viebrock.ca",
+                    "homepage": "https://github.com/cviebrock"
+                }
+            ],
+            "description": "Easy creation of slugs for your Eloquent models in Laravel 4.",
+            "homepage": "https://github.com/cviebrock/eloquent-sluggable",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "slug"
+            ],
+            "time": "2013-11-15 19:29:17"
         },
         {
             "name": "doctrine/annotations",
@@ -677,12 +727,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "36bde1d68370a852fc37f41340c78525efdbff73"
+                "reference": "733cf07800756a3d57a2c912c4d44f5ddf0457b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/36bde1d68370a852fc37f41340c78525efdbff73",
-                "reference": "36bde1d68370a852fc37f41340c78525efdbff73",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/733cf07800756a3d57a2c912c4d44f5ddf0457b6",
+                "reference": "733cf07800756a3d57a2c912c4d44f5ddf0457b6",
                 "shasum": ""
             },
             "require": {
@@ -782,7 +832,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2013-11-25 17:15:20"
+            "time": "2013-11-27 15:45:20"
         },
         {
             "name": "monolog/monolog",
@@ -948,12 +998,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "7f4ab26732c6c0dcfeef98ee94452977ac26e82c"
+                "reference": "0353c921bd12980399e3e6404ea3931b3356e15a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/7f4ab26732c6c0dcfeef98ee94452977ac26e82c",
-                "reference": "7f4ab26732c6c0dcfeef98ee94452977ac26e82c",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0353c921bd12980399e3e6404ea3931b3356e15a",
+                "reference": "0353c921bd12980399e3e6404ea3931b3356e15a",
                 "shasum": ""
             },
             "require": {
@@ -985,7 +1035,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2013-11-15 19:27:56"
+            "time": "2013-11-27 19:33:56"
         },
         {
             "name": "patchwork/utf8",
@@ -1044,12 +1094,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "4e664c6c90824bc5161aea1981235adf315a6949"
+                "reference": "aac811f8976d574ded6fd59033ba1c1f47ef1c74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/4e664c6c90824bc5161aea1981235adf315a6949",
-                "reference": "4e664c6c90824bc5161aea1981235adf315a6949",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/aac811f8976d574ded6fd59033ba1c1f47ef1c74",
+                "reference": "aac811f8976d574ded6fd59033ba1c1f47ef1c74",
                 "shasum": ""
             },
             "require": {
@@ -1083,7 +1133,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2013-11-22 14:17:50"
+            "time": "2013-11-29 10:14:14"
         },
         {
             "name": "psr/log",
@@ -1343,12 +1393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
-                "reference": "5da7e8c937fac1e82ebc2c096152fed2d14d09e6"
+                "reference": "b4ea949b41f7d01d70a54c9aaae6e17d9f1546ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/5da7e8c937fac1e82ebc2c096152fed2d14d09e6",
-                "reference": "5da7e8c937fac1e82ebc2c096152fed2d14d09e6",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/b4ea949b41f7d01d70a54c9aaae6e17d9f1546ee",
+                "reference": "b4ea949b41f7d01d70a54c9aaae6e17d9f1546ee",
                 "shasum": ""
             },
             "require": {
@@ -1390,7 +1440,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-25 15:00:46"
+            "time": "2013-11-28 16:41:31"
         },
         {
             "name": "symfony/dom-crawler",
@@ -1452,12 +1502,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "2d8ece3c610726a73d0c95c885134efea182610e"
+                "reference": "d24a5afe3e711757d87ce9e64d5f6cbc9c4af797"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/2d8ece3c610726a73d0c95c885134efea182610e",
-                "reference": "2d8ece3c610726a73d0c95c885134efea182610e",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/d24a5afe3e711757d87ce9e64d5f6cbc9c4af797",
+                "reference": "d24a5afe3e711757d87ce9e64d5f6cbc9c4af797",
                 "shasum": ""
             },
             "require": {
@@ -1497,7 +1547,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-13 06:32:10"
+            "time": "2013-11-28 10:26:47"
         },
         {
             "name": "symfony/filesystem",
@@ -1600,12 +1650,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "c4522cb62c25f3e6d481a93701d4d7814ab434a8"
+                "reference": "8ee29656d6dd026ac5c195b9165ff730a6c88515"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/c4522cb62c25f3e6d481a93701d4d7814ab434a8",
-                "reference": "c4522cb62c25f3e6d481a93701d4d7814ab434a8",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/8ee29656d6dd026ac5c195b9165ff730a6c88515",
+                "reference": "8ee29656d6dd026ac5c195b9165ff730a6c88515",
                 "shasum": ""
             },
             "require": {
@@ -1641,7 +1691,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-25 14:49:41"
+            "time": "2013-11-28 10:26:47"
         },
         {
             "name": "symfony/http-kernel",
@@ -1826,12 +1876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
-                "reference": "809f030dbc3a3e7adfdaff0b52bf21ce07289195"
+                "reference": "6b255d216d206983598d16906dee9dc63a2e8ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/809f030dbc3a3e7adfdaff0b52bf21ce07289195",
-                "reference": "809f030dbc3a3e7adfdaff0b52bf21ce07289195",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/6b255d216d206983598d16906dee9dc63a2e8ee4",
+                "reference": "6b255d216d206983598d16906dee9dc63a2e8ee4",
                 "shasum": ""
             },
             "require": {
@@ -1872,7 +1922,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-11-25 14:49:41"
+            "time": "2013-11-28 06:43:58"
         },
         {
             "name": "way/generators",
