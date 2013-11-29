@@ -31,3 +31,10 @@ Route::group(array('before'=>'auth'),function(){
 	Route::resource('gererDesGroupes','GererGroupesController');
 
 });
+
+route::get('test',function(){
+$sceance = Sceance::find(1);
+foreach($sceance->eleve as $eleve){
+    print '<li>' . $eleve->nom . ' ' . $eleve->pivot->presence_id;
+}
+});
