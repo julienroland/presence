@@ -26,6 +26,7 @@ return array(
     'CreateAnneeLevelTable' => $baseDir . '/app/database/migrations/2013_11_25_204839_create_anneelevel_table.php',
     'CreateAnneesHasElevesTable' => $baseDir . '/app/database/migrations/2013_11_25_204912_create_anneeshaseleves_table.php',
     'CreateAnneesTable' => $baseDir . '/app/database/migrations/2013_11_25_204857_create_annees_table.php',
+    'CreateCoursHasGroupeTable' => $baseDir . '/app/database/migrations/2013_11_30_144738_create_courshasgroupe_table.php',
     'CreateCoursHasProfsTable' => $baseDir . '/app/database/migrations/2013_11_25_205025_create_courshasprofs_table.php',
     'CreateCoursTable' => $baseDir . '/app/database/migrations/2013_11_25_205013_create_cours_table.php',
     'CreateDayTable' => $baseDir . '/app/database/migrations/2013_11_25_205005_create_day_table.php',

@@ -25,7 +25,12 @@ Route::any('identifier',array('as'=>'identifier','uses'=>'IdentifierController@l
 Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
 Route::group(array('before'=>'auth'),function(){
 
+	Route::get('gererMesCours/creer', array('as'=>'creerCours','uses'=>'GererCoursController@creer'));
+	Route::get('gererMesCours/{slug}/editer', array('as'=>'editerCours','uses'=>'GererCoursController@editer'));
+	Route::get('gererMesCours/modifier/{slug}', array('as'=>'modifierCours','uses'=>'GererCoursController@modifier'));
+	Route::get('gererMesCours/supprimer/{slug}', array('as'=>'supprimerCours','uses'=>'GererCoursController@supprimer'));
 	Route::resource('gererMesCours','GererCoursController');
+
 	Route::resource('gererMesSceances','GererSceancesController');
 	Route::resource('gererMesEleves','GererElevesController');
 	Route::resource('gererDesGroupes','GererGroupesController');
@@ -33,8 +38,8 @@ Route::group(array('before'=>'auth'),function(){
 });
 
 route::get('test',function(){
-$sceance = Sceance::find(1);
-foreach($sceance->eleve as $eleve){
-    print '<li>' . $eleve->nom . ' ' . $eleve->pivot->presence_id;
-}
+	$sceance = Sceance::find(1);
+	foreach($sceance->eleve as $eleve){
+		print '<li>' . $eleve->nom . ' ' . $eleve->pivot->presence_id;
+	}
 });
