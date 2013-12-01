@@ -24,7 +24,8 @@ Route::any('identifier',array('as'=>'identifier','uses'=>'IdentifierController@l
 //});
 Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
 Route::group(array('before'=>'auth'),function(){
-
+	
+	/* GERER MES COURS */ 
 	Route::get('gererMesCours', array('as'=>'listerCours','uses'=>'GererCoursController@index'));
 	Route::any('gererMesCours/creer', array('as'=>'creerCours','uses'=>'GererCoursController@creer'));
 	Route::any('gererMesCours/{slug}', array('as'=>'voirCours','uses'=>'GererCoursController@voir'));
@@ -33,7 +34,16 @@ Route::group(array('before'=>'auth'),function(){
 	Route::any('gererMesCours/supprimer/{slug}', array('as'=>'supprimerCours','uses'=>'GererCoursController@supprimer'));
 	Route::resource('gererMesCours','GererCoursController');
 
+	/* GERER MES SCEANCES */
 	Route::resource('gererMesSceances','GererSceancesController');
+	Route::get('gererMesSceances', array('as'=>'listerSceances','uses'=>'GererSceancesController@index'));
+	Route::any('gererMesSceances/creer', array('as'=>'creerSceances','uses'=>'GererSceancesController@creer'));
+	Route::any('gererMesSceances/{slug}', array('as'=>'voirSceances','uses'=>'GererSceancesController@voir'));
+	Route::any('gererMesSceances/{slug}/editer', array('as'=>'editerSceances','uses'=>'GererSceancesController@editer'));
+	Route::any('gererMesSceances/modifier/{slug}', array('as'=>'modifierSceances','uses'=>'GererSceancesController@modifier'));
+	Route::any('gererMesSceances/supprimer/{slug}', array('as'=>'supprimerSceances','uses'=>'GererSceancesController@supprimer'));
+	
+
 	Route::resource('gererMesEleves','GererElevesController');
 	Route::resource('gererDesGroupes','GererGroupesController');
 
