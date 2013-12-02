@@ -15,16 +15,20 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
+Route::group(array('before'=>'guess'),function(){
 
-Route::any('login', array('before'=>'guess'));
-//Route::group(array('before'=>'auth'),function(){
-
-Route::any('identifier',array('as'=>'identifier','uses'=>'IdentifierController@login'));
-
-//});
-Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
-Route::group(array('before'=>'auth'),function(){
 	
+	Route::any('identifier',array('as'=>'identifier','uses'=>'IdentifierController@login'));
+	Route::get('inscription',array('as'=>'inscription','uses'=>'InscriptionController@index'));
+	Route::post('inscription/creer',array('as'=>'ajouterProf','uses'=>'InscriptionController@creer'));
+
+});
+
+
+
+
+Route::group(array('before'=>'auth'),function(){
+	Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
 	/* GERER MES COURS */ 
 	Route::get('gererMesCours', array('as'=>'listerCours','uses'=>'GererCoursController@index'));
 	Route::any('gererMesCours/creer', array('as'=>'creerCours','uses'=>'GererCoursController@creer'));
