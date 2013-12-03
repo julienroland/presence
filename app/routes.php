@@ -39,14 +39,14 @@ Route::group(array('before'=>'auth'),function(){
 	Route::resource('gererMesCours','GererCoursController');
 
 	/* GERER MES SCEANCES */
-	Route::resource('gererMesSceances','GererSceancesController');
+
 	Route::get('gererMesSceances', array('as'=>'listerSceances','uses'=>'GererSceancesController@index'));
 	Route::any('gererMesSceances/creer', array('as'=>'creerSceances','uses'=>'GererSceancesController@creer'));
 	Route::any('gererMesSceances/{slug}', array('as'=>'voirSceances','uses'=>'GererSceancesController@voir'));
 	Route::any('gererMesSceances/{slug}/editer', array('as'=>'editerSceances','uses'=>'GererSceancesController@editer'));
 	Route::any('gererMesSceances/modifier/{slug}', array('as'=>'modifierSceances','uses'=>'GererSceancesController@modifier'));
 	Route::any('gererMesSceances/supprimer/{slug}', array('as'=>'supprimerSceances','uses'=>'GererSceancesController@supprimer'));
-	
+	Route::resource('gererMesSceances','GererSceancesController');
 
 	Route::resource('gererMesEleves','GererElevesController');
 	Route::resource('gererDesGroupes','GererGroupesController');
