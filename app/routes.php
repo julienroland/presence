@@ -13,6 +13,8 @@
 
 Route::get('/', function()
 {
+	
+
 	return View::make('index');
 });
 Route::group(array('before'=>'guess'),function(){
@@ -42,10 +44,10 @@ Route::group(array('before'=>'auth'),function(){
 
 	Route::get('gererMesSceances', array('as'=>'listerSceances','uses'=>'GererSceancesController@index'));
 	Route::any('gererMesSceances/creer', array('as'=>'creerSceances','uses'=>'GererSceancesController@creer'));
-	Route::any('gererMesSceances/{slug}', array('as'=>'voirSceances','uses'=>'GererSceancesController@voir'));
-	Route::any('gererMesSceances/{slug}/editer', array('as'=>'editerSceances','uses'=>'GererSceancesController@editer'));
-	Route::any('gererMesSceances/modifier/{slug}', array('as'=>'modifierSceances','uses'=>'GererSceancesController@modifier'));
-	Route::any('gererMesSceances/supprimer/{slug}', array('as'=>'supprimerSceances','uses'=>'GererSceancesController@supprimer'));
+	Route::any('gererMesSceances/{id}', array('as'=>'voirSceances','uses'=>'GererSceancesController@voir'));
+	Route::any('gererMesSceances/{id}/editer', array('as'=>'editerSceances','uses'=>'GererSceancesController@editer'));
+	Route::any('gererMesSceances/modifier/{id}', array('as'=>'modifierSceances','uses'=>'GererSceancesController@modifier'));
+	Route::any('gererMesSceances/supprimer/{id}', array('as'=>'supprimerSceances','uses'=>'GererSceancesController@supprimer'));
 	Route::resource('gererMesSceances','GererSceancesController');
 
 	Route::resource('gererMesEleves','GererElevesController');

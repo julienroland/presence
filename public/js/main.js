@@ -3,12 +3,10 @@
 
 	$(function(){
 
-		$('.menuCrud.hasForm a').on('click',showFormCours);
+		$('#jourX').on('change',addDayForm);
 	});
-
-	var showFormCours = function( e ){
-		e.preventDefault();
-		$(this).parent().parent().find('.formCours').slideToggle('fast');
-	};
+	var addDayForm = function (  ){
+		console.log(this);
+	}
 
 }).call(this,jQuery);
