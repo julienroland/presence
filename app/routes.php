@@ -50,6 +50,8 @@ Route::group(array('before'=>'auth'),function(){
 	Route::any('gererMesSceances/supprimer/{id}', array('as'=>'supprimerSceances','uses'=>'GererSceancesController@supprimer'));
 	Route::resource('gererMesSceances','GererSceancesController');
 
+	/* GERER MES ELEVES */
+
 	Route::get('gererMesEleves', array('as'=>'listerEleves','uses'=>'GererElevesController@index'));
 	Route::any('gererMesEleves/creer', array('as'=>'creerEleves','uses'=>'GererElevesController@creer'));
 	Route::any('gererMesEleves/{id}', array('as'=>'voirEleves','uses'=>'GererElevesController@voir'));
@@ -58,6 +60,14 @@ Route::group(array('before'=>'auth'),function(){
 	Route::any('gererMesEleves/supprimer/{id}', array('as'=>'supprimerEleves','uses'=>'GererElevesController@supprimer'));
 	Route::resource('gererMesEleves','GererElevesController');
 
+	/* GERER MES GROUPES */
+
+	Route::get('gererMesGroupes', array('as'=>'listerGroupes','uses'=>'GererGroupesController@index'));
+	Route::any('gererMesGroupes/creer', array('as'=>'creerGroupes','uses'=>'GererGroupesController@creer'));
+	Route::any('gererMesGroupes/{id}', array('as'=>'voirGroupes','uses'=>'GererGroupesController@voir'));
+	Route::any('gererMesGroupes/{id}/editer', array('as'=>'editerGroupes','uses'=>'GererGroupesController@editer'));
+	Route::any('gererMesGroupes/modifier/{id}', array('as'=>'modifierGroupes','uses'=>'GererGroupesController@modifier'));
+	Route::any('gererMesGroupes/supprimer/{id}', array('as'=>'supprimerGroupes','uses'=>'GererGroupesController@supprimer'));
 	Route::resource('gererDesGroupes','GererGroupesController');
 
 });

@@ -14,7 +14,10 @@ class CreateGroupeTable extends Migration {
 	{
 		Schema::create('groupe', function(Blueprint $table) {
 			$table->integer('id');
-			$table->string('options_id');
+			$table->integer('options_id');
+			$table->integer('profs_id');
+			$table->string('slug');
+			$table->string('nom');
 			
 			$table->timestamps();
 		});
