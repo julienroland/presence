@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"way/generators": "dev-master",
-		 "cviebrock/eloquent-sluggable": "1.0.*"
+		 "cviebrock/eloquent-sluggable": "1.0.*",
+		  "nesbot/Carbon": "*"
 		},
 		"autoload": {
 			"classmap": [

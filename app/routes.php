@@ -1,22 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
 Route::get('/', function()
 {
-	
-
 	return View::make('index');
 });
+
 Route::group(array('before'=>'guess'),function(){
 
 	
@@ -26,10 +14,8 @@ Route::group(array('before'=>'guess'),function(){
 
 });
 
-
-
-
 Route::group(array('before'=>'auth'),function(){
+
 	Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
 	/* GERER MES COURS */ 
 	Route::get('gererMesCours', array('as'=>'listerCours','uses'=>'GererCoursController@index'));
@@ -68,13 +54,6 @@ Route::group(array('before'=>'auth'),function(){
 	Route::any('gererMesGroupes/{id}/editer', array('as'=>'editerGroupes','uses'=>'GererGroupesController@editer'));
 	Route::any('gererMesGroupes/modifier/{id}', array('as'=>'modifierGroupes','uses'=>'GererGroupesController@modifier'));
 	Route::any('gererMesGroupes/supprimer/{id}', array('as'=>'supprimerGroupes','uses'=>'GererGroupesController@supprimer'));
-	Route::resource('gererDesGroupes','GererGroupesController');
+	Route::resource('gererMesGroupes','GererGroupesController');
 
-});
-
-route::get('test',function(){
-	$sceance = Sceance::find(1);
-	foreach($sceance->eleve as $eleve){
-		print '<li>' . $eleve->nom . ' ' . $eleve->pivot->presence_id;
-	}
 });
