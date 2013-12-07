@@ -63,4 +63,7 @@ Route::group(array('before'=>'auth'),function(){
 	Route::any('gererMesGroupes/supprimer/{id}', array('as'=>'supprimerGroupes','uses'=>'GererGroupesController@supprimer'));
 	Route::resource('gererMesGroupes','GererGroupesController');
 
+	/* AJAX PRESENCE*/
+
+	Route::any('gererPresence/modifier/{idPresence}/{idEleve}/{idSceance}', array('as'=>'modifierPresence','uses'=>'GererPresenceController@modifier'));
 });
