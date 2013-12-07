@@ -2,6 +2,13 @@
 
 Route::get('/', function()
 {
+	if(!Session::has('user'))
+	{
+		Auth::logout();
+		return View::make('index')
+			->with('expiration','Votre session à expirée, reconnectez-vous.');
+	}
+
 	return View::make('index');
 });
 
