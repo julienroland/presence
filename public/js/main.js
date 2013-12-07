@@ -24,17 +24,35 @@
 			dataType: "json",
 			url:"../gererPresence/modifier/"+nIdPresence+"/"+nIdEleve+"/"+nIdSceance,
 			success: function ( oResponse ){
-				
-				console.log(oResponse);
 
-				$('#presence').html(JSON.stringify(oResponse));
+				if( oResponse.presenceId == 0 )
+				{
+					$('.eleve.'+oResponse.eleveId)
+					.parent('.presence')
+					.removeClass()
+					.addClass('presence notDone '+oResponse.presenceId);
+				}
+				else if( oResponse.presenceId == 3 )
+				{
+					$('.eleve.'+oResponse.eleveId)
+					.parent('.presence')
+					.removeClass()
+					.addClass('presence ok '+oResponse.presenceId);
+				}
+				else
+				{
+					$('.eleve.'+oResponse.eleveId)
+					.parent('.presence')
+					.removeClass()
+					.addClass('presence notOk '+oResponse.presenceId);
+				}
 
-				console.log($('.eleve.'+oResponse.eleveId).parent('.presence').removeClass().addClass('presence '+oResponse.presenceId));
-				
-					
-				
-			}
-		})
 
-	}
+
+
+
+}
+})
+
+}
 }).call(this,jQuery);

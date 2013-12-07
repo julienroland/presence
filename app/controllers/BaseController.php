@@ -14,5 +14,11 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
+	public static function dateEu( $date ){
+
+		$dateExplode = explode('-',$date);
+
+		return $dateExplode[2].'/'. $dateExplode[1].'/'.$dateExplode[0];
+	}
 
 }
