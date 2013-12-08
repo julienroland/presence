@@ -14,12 +14,7 @@ class BaseController extends Controller {
 		{
 			$this->layout = View::make($this->layout);
 		}
-		if(!Session::has('user'))
-		{
-			Auth::logout();
-			return Redirect::to('index')
-			->with('message','Votre session à expirée, reconnectez-vous.');
-		}
+		
 	}
 
 	public static function dateEu( $date ){
@@ -27,6 +22,20 @@ class BaseController extends Controller {
 		$dateExplode = explode('-',$date);
 
 		return $dateExplode[2].'/'. $dateExplode[1].'/'.$dateExplode[0];
+	}
+
+	public static function connexion(){
+		if(!Session::has('user'))
+		{
+			Auth::logout();
+			return Redirect::to('/')
+			->with('message','Votre session à expirée, reconnectez-vous.');
+		}
+	}
+
+	public static function toPercent( $value , $on )
+	{
+		return ($value / $on ) * 100 .'%';
 	}
 
 }

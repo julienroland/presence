@@ -66,4 +66,5 @@ Route::group(array('before'=>'auth'),function(){
 	/* AJAX PRESENCE*/
 
 	Route::any('gererPresence/modifier/{idPresence}/{idEleve}/{idSceance}', array('as'=>'modifierPresence','uses'=>'GererPresenceController@modifier'));
+	Route::any('gererPresence/update/{idSceance}', array('as'=>'updatePresence','uses'=>'GererPresenceController@updatePourcentage'));
 });

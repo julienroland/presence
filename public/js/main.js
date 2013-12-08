@@ -12,14 +12,14 @@
 			var nIdEleve = $(this).attr('data-ideleve');
 			var nIdSceance = $(this).attr('data-idsceance');
 
-			ajaxModifier( nIdPresence, nIdEleve, nIdSceance );
+			ajaxModifierPresence( nIdPresence, nIdEleve, nIdSceance );
 		})
 	});
 	var addDayForm = function (  ){
 		console.log($(this).find('selected').val());
 	}
 
-	var ajaxModifier = function( nIdPresence, nIdEleve, nIdSceance ){
+	var ajaxModifierPresence = function( nIdPresence, nIdEleve, nIdSceance ){
 		$.ajax({
 			dataType: "json",
 			url:"../gererPresence/modifier/"+nIdPresence+"/"+nIdEleve+"/"+nIdSceance,
@@ -47,12 +47,22 @@
 					.addClass('presence notOk '+oResponse.presenceId);
 				}
 
+				ajaxUpdatePresencePourcentage( nIdSceance );
+			}
+		})
 
+	}
+	var ajaxUpdatePresencePourcentage = function( nIdSceance ){
+		
+		$.ajax({
+			dataType:"json",
+			url:"../gererPresence/update/"+nIdSceance,
+			success: function( oResponse ){
 
+				$('#groupeData').html(oResponse+" de présence");
 
+			}
+		})
+	}
 
-}
-})
-
-}
 }).call(this,jQuery);
