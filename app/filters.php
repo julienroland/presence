@@ -22,6 +22,11 @@ App::after(function($request, $response)
 	//
 });
 
+Route::filter('connected', function()
+{
+	if (!Session::has('user')) return Redirect::guest('/');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
@@ -37,6 +42,8 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::guest('identifier');
 });
+
+
 
 
 Route::filter('auth.basic', function()

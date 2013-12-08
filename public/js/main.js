@@ -47,20 +47,39 @@
 					.addClass('presence notOk '+oResponse.presenceId);
 				}
 
-				ajaxUpdatePresencePourcentage( nIdSceance );
+				ajaxUpdatePresenceTotalPourcentage( nIdSceance );
+				ajaxUpdateGroupePercentage( nIdSceance );
 			}
 		})
 
 	}
-	var ajaxUpdatePresencePourcentage = function( nIdSceance ){
+	var ajaxUpdatePresenceTotalPourcentage = function( nIdSceance ){
 		
 		$.ajax({
 			dataType:"json",
-			url:"../gererPresence/update/"+nIdSceance,
+			url:"../gererPresence/updateTotal/"+nIdSceance,
 			success: function( oResponse ){
 
-				$('#groupeData').html(oResponse+" de présence");
+				$('#sceanceData').html(oResponse+" de présence");
 
+			}
+		})
+	}
+	var ajaxUpdateGroupePercentage = function ( nIdSceance ){
+
+		$.ajax({
+			dataType:"json",
+			url:"../gererPresence/updateGroupe/"+nIdSceance,
+			success: function( oResponse ){
+				
+				console.log(oResponse);
+				for(var i = 0 ; i<=oResponse.length-1;i++){
+
+					console.log($('.groupePresence').attr('data-groupeId'));
+					//TODO si les ID des groupes matches bien
+					// on peut changer les valeurs des percentages
+				
+				}
 			}
 		})
 	}

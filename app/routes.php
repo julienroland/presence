@@ -21,7 +21,7 @@ Route::group(array('before'=>'guess'),function(){
 
 });
 
-Route::group(array('before'=>'auth'),function(){
+Route::group(array('before'=>'auth','before'=>'connected'),function(){
 
 	Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
 	/* GERER MES COURS */ 
@@ -66,5 +66,6 @@ Route::group(array('before'=>'auth'),function(){
 	/* AJAX PRESENCE*/
 
 	Route::any('gererPresence/modifier/{idPresence}/{idEleve}/{idSceance}', array('as'=>'modifierPresence','uses'=>'GererPresenceController@modifier'));
-	Route::any('gererPresence/update/{idSceance}', array('as'=>'updatePresence','uses'=>'GererPresenceController@updatePourcentage'));
+	Route::any('gererPresence/updateTotal/{idSceance}', array('as'=>'updateTotalPresence','uses'=>'GererPresenceController@updateTotalPourcentage'));
+	Route::any('gererPresence/updateGroupe/{idSceance}', array('as'=>'updateGroupePresence','uses'=>'GererPresenceController@updateGroupePourcentage'));
 });
