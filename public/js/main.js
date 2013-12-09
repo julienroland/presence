@@ -22,6 +22,7 @@
 	var ajaxModifierPresence = function( nIdPresence, nIdEleve, nIdSceance ){
 		$.ajax({
 			dataType: "json",
+			type:"POST",
 			url:"../gererPresence/modifier/"+nIdPresence+"/"+nIdEleve+"/"+nIdSceance,
 			success: function ( oResponse ){
 
@@ -57,6 +58,7 @@
 		
 		$.ajax({
 			dataType:"json",
+			type:"POST",
 			url:"../gererPresence/updateTotal/"+nIdSceance,
 			success: function( oResponse ){
 
@@ -69,16 +71,38 @@
 
 		$.ajax({
 			dataType:"json",
+			type:"POST",
 			url:"../gererPresence/updateGroupe/"+nIdSceance,
 			success: function( oResponse ){
 				
-				console.log(oResponse);
+				//console.log(oResponse);
+
+				var aGroupeId = [],
+				$groupePresence = $('.groupePresence');
+
+				$groupePresence.map(function(){
+					aGroupeId.push($(this).attr('data-groupeId'));
+				});
+
+				console.log(aGroupeId);
+
 				for(var i = 0 ; i<=oResponse.length-1;i++){
 
-					console.log($('.groupePresence').attr('data-groupeId'));
+					if(aGroupeId[i] == oResponse[i].id){
+						$groupePresence.map(function(){
+							console.log($(this).find('.nom').html());
+							$(this).find('.nom').html(oResponse[i].nom);
+							//$(this).find('.percent').html(oResponse[i].percent);
+						});
+					}
+					else
+					{
+						//console.log('no');
+					}
+
 					//TODO si les ID des groupes matches bien
 					// on peut changer les valeurs des percentages
-				
+
 				}
 			}
 		})
