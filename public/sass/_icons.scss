@@ -1,0 +1,66 @@
+@import "functions";
+@import "variables";
+@import "compass";
+
+
+@mixin icon(){
+	.icon{
+		width:32px;
+		height:32px;
+		display:inline-block;
+		float:left;
+		margin-right: 0.5em;
+		top:0;
+		text-indent: -999999px;
+		background-size: 100%;
+	}
+	.icon-menu{
+		
+		background-image: url('../img/framework/icon/menu2White.png');
+	}
+	.icon-chevron-right-white{
+		
+		float:right;
+		background-image: url('../img/framework/icon/chevron-rightWhite.png');
+
+	}
+	.icon-chevron-right-little-white{
+		height:16px;
+		width:16px;
+		background-image: url('../img/framework/icon/chevron-right-littleWhite.png');
+	}
+	.icon-chevron-bottom-white{
+		
+		float:right;
+		background-image: url('../img/framework/icon/chevron-bottomWhite.png');
+
+	}
+	.icon-shop-white{
+		
+		float:right;
+		background-image: url('../img/framework/icon/shopWhite.png');
+
+	}
+	.icon-map-little{
+		height:16px;
+		width:16px;
+		float:right;
+
+		background-image: url('../img/framework/icon/map-little.png');
+
+	}
+	.icon-email-little{
+		height:16px;
+		width:16px;
+		float:right;
+		background-image: url('../img/framework/icon/mail-little.png');
+
+	}
+	.icon-tel-little{
+		height:16px;
+		width:16px;
+		float:right;
+		background-image: url('../img/framework/icon/tel-little.png');
+
+	}
+}

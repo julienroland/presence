@@ -1,0 +1,26 @@
+@import "variables";
+$col: 12 ;
+
+$col_margin: 0 ;
+$gout: $gutter;
+@function colAlone($nNumber){
+
+  @return ($nNumber / $col * 100%);
+
+}
+@function col($nNumber){
+
+  @return ($nNumber / $col * 100%) - (( $gout / $mw * 100% ) / 2);
+
+}
+@function gutter(){
+
+  @return ($gout / $mw * 100%) / 2;
+
+}
+@function colf($nNumber){
+
+  @return ($nNumber / $col * 100%) - (( $gout / $mw * 100% ) / 2) ;
+
+}
+/*l * 100 / 1024*/
