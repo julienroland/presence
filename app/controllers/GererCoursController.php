@@ -20,8 +20,6 @@ class GererCoursController extends \BaseController {
 		$id = Session::get('user')['id'];
 		$prof= Prof::find($id);
 		
-		
-		
 		$paramCours = (object)array(
 			'groupe'=>Groupe::get()->toArray(),
 			'option'=>Option::get()->toArray(),

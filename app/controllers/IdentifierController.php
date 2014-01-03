@@ -38,7 +38,6 @@ class IdentifierController extends BaseController {
 				->withInput()
 				->withErrors($validation);
 				
-
 		}
 		else
 		{
@@ -47,10 +46,9 @@ class IdentifierController extends BaseController {
 			{
 				
 				$prof= Auth::user();
-
-				Session::put('user',$prof);
-
 				
+				Session::put('user',$prof);
+	
 				Cookie::forever('connected', array('email'=>$email,'password'=>$password));
 				return Redirect::to('/');
 			}

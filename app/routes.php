@@ -12,7 +12,7 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::group(array('before'=>'guess'),function(){
+Route::group(array('before'=>'guest'),function(){
 
 	
 	Route::any('identifier',array('as'=>'identifier','uses'=>'IdentifierController@login'));
