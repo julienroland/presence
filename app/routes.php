@@ -1,19 +1,23 @@
 <?php
-
 Route::get('/', function()
-{
-	if(!Session::has('user'))
 	{
-		Auth::logout();
-		return View::make('index')
+		if(!Session::has('user'))
+		{
+			Auth::logout();
+			return View::make('index')
 			->with('expiration','Votre session à expirée, reconnectez-vous.');
-	}
+		}else{
 
-	return View::make('index');
-});
+		return View::make('indexLog');
+		}
+	});
+
+//Route::model('prof', 'Prof');	
+Route::get('index',array('as'=>'accueilLog','uses'=>'HomeController@index'));
 
 Route::group(array('before'=>'guest'),function(){
 
+	
 	
 	Route::any('identifier',array('as'=>'identifier','uses'=>'IdentifierController@login'));
 	Route::get('inscription',array('as'=>'inscription','uses'=>'InscriptionController@index'));
@@ -23,15 +27,16 @@ Route::group(array('before'=>'guest'),function(){
 
 Route::group(array('before'=>'auth','before'=>'connected'),function(){
 
-	Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@deconnecter'));
+
+	Route::any('deconnecter',array('as'=>'deconnecter','uses'=>'DeconnecterController@index'));
 	/* GERER MES COURS */ 
-	Route::get('gererMesCours', array('as'=>'listerCours','uses'=>'GererCoursController@index'));
-	Route::any('gererMesCours/creer', array('as'=>'creerCours','uses'=>'GererCoursController@creer'));
-	Route::any('gererMesCours/{slug}', array('as'=>'voirCours','uses'=>'GererCoursController@voir'));
-	Route::any('gererMesCours/{slug}/editer', array('as'=>'editerCours','uses'=>'GererCoursController@editer'));
-	Route::any('gererMesCours/modifier/{slug}', array('as'=>'modifierCours','uses'=>'GererCoursController@modifier'));
-	Route::any('gererMesCours/supprimer/{slug}', array('as'=>'supprimerCours','uses'=>'GererCoursController@supprimer'));
-	Route::resource('gererMesCours','GererCoursController');
+	Route::get('cours', array('as'=>'listerCours','uses'=>'GererCoursController@index'));
+	Route::any('cours/creer', array('as'=>'creerCours','uses'=>'GererCoursController@creer'));
+	Route::any('cours/{slug}', array('as'=>'voirCours','uses'=>'GererCoursController@voir'));
+	Route::any('cours/{slug}/editer', array('as'=>'editerCours','uses'=>'GererCoursController@editer'));
+	Route::any('cours/modifier/{slug}', array('as'=>'modifierCours','uses'=>'GererCoursController@modifier'));
+	Route::any('cours/supprimer/{slug}', array('as'=>'supprimerCours','uses'=>'GererCoursController@supprimer'));
+	Route::resource('cours','GererCoursController');
 
 	/* GERER MES SCEANCES */
 

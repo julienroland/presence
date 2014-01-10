@@ -2,23 +2,11 @@
 
 class IdentifierController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
 	public function login()
 	{
+
 		$email = Input::get('email');
-		$password = Input::get('mdp');
+		$password = Input::get('password');
 
 		$validation = Validator::make(
 			array(
@@ -34,7 +22,7 @@ class IdentifierController extends BaseController {
 		if ($validation->fails())
 		{
 			
-			return Redirect::to('/#connexion')
+			return Redirect::to('/')
 				->withInput()
 				->withErrors($validation);
 				
@@ -45,17 +33,16 @@ class IdentifierController extends BaseController {
 			if(Auth::attempt(array('email'=>$email,'password'=>$password),true))
 			{
 				
-				$prof= Auth::user();
+				$prof = serialize(Auth::user());
 				
 				Session::put('user',$prof);
-	
 				Cookie::forever('connected', array('email'=>$email,'password'=>$password));
-				return Redirect::to('/');
+				return Redirect::to('index');
 			}
 			else
 			{
 
-				return Redirect::to('/#connexion')					
+				return Redirect::to('/')					
 					->withInput()
 					->withErrors($validation)
 					->with('error','Votre compte n\'existe pas ou vous avez fait une erreur');

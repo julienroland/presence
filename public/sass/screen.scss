@@ -1,394 +1,1790 @@
-
-@import "compass/reset";
-@import url(http://fonts.googleapis.com/css?family=Oswald:300,400,700);
 @import "variables";
 @import "mixin";
 @import "compass";
-
+@import "compass/reset";
 @import "compass/css3";
 @import "icons";
+@import url(http://fonts.googleapis.com/css?family=Oswald:300,400,700);
 
 @include body();
 @include container();
 @include heading();
 @include section();
 @include wrapper();
-//@include article();
+@include article();
 @include breadcrumbs();
-@include table();
-@include btn-gradient();
 @include btn();
 @include label();
 @include input();
-@include form();
 @include img();
-//@include icon();
-
+@include icon();
+@include form();
 /* GENERAL */
-body{
-	background-color:$greyL;
-}
-.action{
-	@include cfl(4);
-	&:after{
-		@include clear();
-	}
-}
-.action + .action{
-	@include cl(4);
-}
-.menuCrud{
+body {
+  background-color: $mc;
+  background-image: image-url('framework/background/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: auto !important;
 
-	&:after{
-		@include clear();
-	}
-}
-.formCours{
-	display:none;
-}
-/* END GENERAL */
-
-/* HEADER */
-.banner{
-	background-color: white;
-	display:block;
-	height:30%;
-	min-height: 150px;
-	.logo{
-		text-align: center;
-		padding:0;
-		margin:0;
-		margin-top: 1em;
-		font-family: $ff2;
-		h3{
-			font-size: 0.6em;
-			font-weight: 400;
-			line-height: 1;
-			a{
-
-				display:block;
-				color:$mc;
-				width:100%;
-
-			}
-		}
-		.underTitle{
-			display:none;
-		}
-	}
 
 }
-/* END HEADER */
-/* NAV */
-.nav{
-	height:40px;
-	text-align: center;
-	@include abs-bot();
-	bottom:10px;
-	ul{
-		height:100%;
-		overflow:hidden;
-		display:inline-block;
-		li{
-			display:block;
-			float:left;
-			height:100%;
-			text-align: center;
-			img{
-				@include border-radius(40%);
-			}
-			a{
-				display:inline-block;
-				height:100%;
-				width:100%;
-				color:white;
-				background-color:$mc;
-				font-weight: bold;
-				text-decoration: none;
-				padding: 0.5em 1em;
-				box-sizing:border-box;
-				width:150px;
-				text-align: center;
-			}
-		}
-		li + li{
-			margin-left: 1em;
-		}
-	}
+sup{
+  font-size:xx-small;
+  vertical-align:super;
 }
-/* END NAV */
-/* CONTAINER */
-.container{
-	background-color:$greyL;
-	height:100%;
-	margin: auto;
+.actionsSmall{
+  display:block;
+  margin: auto;
+  text-align: center;
+  margin:$pd 0 ;
 }
-/* END CONTAINER */
-
-/* MAIN */
-.main{
-	min-height:70%;
-	min-height: 350px;
-
-	padding:1em 0;
-	padding-bottom: 3em;
-	&:after{
-		@include clear();
-	}
-	input{
-		min-width: 150px;
-	}
-	.connexion{
-		max-width: 500px;
-		min-height: 300px;
-		box-sizing:border-box;
-		margin: auto;
-		margin-top: 1em;
-		padding-bottom:1em;
-		border:2px solid $mc;
-		height:auto;
-		&:after{
-			@include clear();
-		}
-		.headerBox{
-			margin-bottom: 1em;
-			height:30px;
-			color:white;
-			position:relative;
-			text-align: center;
-			padding:0.2em;
-			background-color: $mc;
-			background-image:-webkit-linear-gradient(top, $mc, darken($mc,5%));
-			h3{
-				font-size:1.3em;
-				display:inline-block;
-				@include abs-bot();
-				bottom:5px;
-			}
-		}
-		form{
-			display:block;
-			@include c(12);
-			margin: auto;
-			input,textarea{
-				height: 60px;
-				font-size: 1.4em;
-				font-weight: 300;
-				
-			}
-			input:-webkit-autofill {
-				-webkit-box-shadow: 0 0 0px 1000px white inset;
-				-webkit-text-fill-color: $tc;
-			}
-			input{
-				display:block;
-				width:100%;
-				margin-top: 0;
-				margin-left: 0;
-				&[type="submit"]
-				{
-					height:50px;
-					font-size: 1em;
-					font-weight: 300;
-					@include c(12);
-				}
-			}
-			label{
-				padding:2px 0;
-			}
-			-webkit-autofill{
-				background-color:#FFF;
-			}
-			.helperAccount{
-				display:inline-block;
-				margin-top: 0.5em;
-			}
-		}
-	}
-	.mainSide{
-		
-		@include c(12);
-		height:auto;
-		position:relative;
-		&:after{
-			@include clear();
-		}
-		.secondaryMenu{
-			height:40px;
-
-			li{
-				@include cfl(2.4);
-				height:100%;
-				& + li{
-					@include cl(2.4);
-				}
-
-				a{
-
-					display:block;
-					width:100%;
-					height: 100%;
-					margin: 0;
-				}
-			}
-		}
-	}
-	.infoSide{
-		
-		@include c(12);
-		height:auto;
-		min-height: 100px;
-		background-color: $mc;
-		position:relative;
-		display:none;
-		&:after{
-			@include clear();
-		}
-		a{
-			color:white;
-		}
-	}
+.delete{
+  text-indent: -99999px;
+  top:-5px;
+  right:-5px;
+  margin-left: 0;
+  margin-top: 0!important;
+  position:absolute;
+  background-repeat: no-repeat;
+  background-image: image-url('framework/icon/close.png');
+  width:16px!important;
+  height:16px!important;
+  padding:0;
+  background-color: transparent!important;
+  &:hover,&:focus{
+    border:0;
+    @include box-shadow( 0 0 0 0);
+  }
 }
-/* END MAIN */
+.separator{
+  border-bottom: 1px solid $greyL2;
+  display:inline-block;
+  height:1px;
+  width:100%;
+}
+.actions{
+  background-color: $mc;
+  color:white;
+  font-weight: bold;
+  border:1px solid darken($mc,10%);
+  @include box-shadow($greyD 0 0 10px 0);
+  width:200px;
+  height:50px;
+  position:absolute;
+  display:none;
+  z-index: 20;
+  span{
+    display:block;
+    height:100%;
+    text-align: center;
+    line-height: 50px;
+    @include cfl(4);
+    & + span{
+      @include cl(4);
+    }
+  }
+  a{
+
+    @include a();
+    display:inline-block;
+    border:0;
+    vertical-align: middle;
+    width:80%;
+    height:30px;
+    text-indent: -999999px;
+    background-color: $greyL;
+    @include transition(all 0.3s ease);
+    &:hover,&:focus{
+      @include box-shadow($greyD2 0 0 6px 0px inset);
+      @include transition(all 0.3s ease);
+    }
+  } 
+}
+.actionsPresence{
+  @extend .actions;
+  width:250px;
+  span{
+    @include cfl(3);
+    & + span{
+      @include cl(3);
+    }
+  }
+}
+.actionsEleves{
+  @extend .actions;
+  width:150px;
+  span{
+    display:block;
+    height:100%;
+    text-align: center;
+    line-height: 50px;
+    @include cfl(6);
+    & + span{
+      @include cl(6);
+    }
+  }
+}
+.clear{
+  @include clear();
+}
+.quote{
+  font-size: 18px;
+//padding-left: 70px;
+//padding-right: 70px;
+margin:1em 0;
+position:relative;
+&:before{
+  content:"";
+  background-image: image-url('framework/icon/quote2.png');
+  width:64px;
+  @include abs-left();
+  height:48px;
+  display:none;
+  background-repeat: no-repeat;
+}
+&:after{
+  content:"";
+  background-image: image-url('framework/icon/quote.png');
+  width:64px;
+  @include abs-right();
+  height:48px;
+  display:none;
+  background-repeat: no-repeat;
+}
+b{
+  font-weight: bold;
+}
+}
+.titleIndex{
+  margin-bottom: 1em;
+  text-align: left;
+  font-size: 24px;
+  line-height: 1.2;
+}
+hr{
+  border:0;
+  height: 1px;
+  border-left: 50px solid #000;
+  background: $greyL2;
+  margin-bottom: 2em;
+}
+a{
+  text-decoration: none;
+  border-top: 1px solid transparent;
+  border-bottom: 1px dotted $tc;
+  @include transition(all 0.3s ease);
+  &:hover,&:focus{
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid $tc;
+    @include transition(all 0.3s ease);
+  }
+}
+
+.container {
+  margin-top: 50px;
+  height: auto !important;
+}
+
+.banner {
+  height: 30%;
+  min-height: 130px;
+  .deco {
+    width: 100px;
+    margin: auto;
+    a {
+      display: block;
+      border: 1px solid white;
+      @include border-radius($pd);
+      padding: $pd;
+      color: white;
+      text-decoration: none;
+      &:hover, &:focus {
+        @include single-transition(all, 0.3s, ease, 0.1s);
+        background-color: white;
+        color: $tc;
+      }
+    }
+  }
+}
+
+/*INDEX PAS CO*/
+
+.logo {
+  height: 15%;
+  margin-bottom: 0.5em;
+  font-family: $ff2;
+  padding-top: $pd;
+  margin-top: 0;
+  h1 {
+    border-bottom: 0;
+    font-size: 1.7em;
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      @include a();
+    }
+  }
+}
+
+.main.one {
+  background-color: transparent;
+
+}
+
+.intro {
+  font-size: 1.618em;
+  color: white;
+  display: none;
+  font-weight: bold;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+
+}
+
+.connexion {
+  border: 1px solid $greyD;
+  max-width: 400px;
+  margin: auto;
+  @include border-radius($pd);
+  box-sizing: border-box;
+  padding: 1em $pd;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  &:after {
+    @include clear();
+  }
+
+  input, label {
+    display: inline-block;
+    width: 100%;
+  }
+  input {
+    margin-top: $pd;
+    height: 50px;
+    font-size: 1em;
+  }
+  label {
+    padding-bottom: 0;
+    color: $tc;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  .problemeCompte {
+    margin: auto;
+    text-align: center;
+    display: block;
+    float:left;
+    width:100%;
+
+    height: 20px;
+    a{
+      @include a();
+      display:inline;
+      width:auto;
+      border-bottom:1px dotted $mc;
+      &:hover,&:focus{
+        border-bottom:1px dotted transparent;
+      }
+    }
+  }
+}
+
+/*END INDEX PAS CO*/
+
+/* INDEX CO*/
+.logo {
+  h1 {
+    line-height: 1.2;
+    font-size: 1.3em;
+    .nom {
+      display: none;
+      @include a();
+    }
+    .prenom{
+      @include a();
+    }
+  }
+}
+.accueil{
+  h2{
+    border-bottom: 0;
+  }
+}
+.nav {
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  right: 0;
+  //opacity:.99;
+  background-color: $mc;
+  color: white;
+  font-family: $ff2;
+  padding: 0 $pd;
+  @include box-shadow(black 0 0 4px 0);
+  .wrapper {
+    font-size: 1.5em;
+    position: relative;
+   // opacity:.99;
+   padding: 0 1rem;
+
+ }
+ a{
+  @include a();
+}
+.accueil {
+  @include cfl(2);
+  font-weight: bold;
+  max-width: 70px;
+  margin-left: 0;
+  margin-bottom: 0;
+  text-align: left;
+  height: 50px;
+  font-size: 1.2em;
+  &:hover, &:focus {
+    //background-color: darken($mc, 10%);
+    text-decoration: underline;
+  }
+}
+
+a, ul {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+.menuLow {
+  float: right;
+  @include abs-top();
+  left: 100px;
+  height:50px;
+  line-height: 50px;
+  padding-right: 36px;
+  display: block;
+  span {
+    float: right;
+    vertical-align: middle;
+  }
+    //padding-right: 16px;
+    &:after {
+      @include abs-right();
+      content: "";
+      display: block;
+      float: right;
+      width: 32px;
+      height: 32px;
+
+      background-image: image-url('framework/icon/menu2White.png');
+    }
+  }
+
+  .menu {
+    @include cl(10);
+    display: none;
+    width: 100%;
+    padding: 1em;
+    z-index: 20;
+    
+    @include abs-top();
+    top: 50px;
+    li {
+      display: inline-block;
+      width: 100%;
+      line-height: 50px;
+      font-size: 1em;
+      margin-bottom: 0.5em;
+      a {
+        padding: 0 $pd;
+        @include box-sizing(border-box);
+        vertical-align: middle;
+        line-height: 50px;
+        @include transition(all 0.3s ease);
+        &:hover, &:focus {
+          background-color: darken($mc, 10%);
+          @include transition(all 0.3s ease);
+          &:after{
+            content:"";
+            @include transition(all 0.3s ease);
+            display:inline-block;
+            width:32px;
+            height:32px;
+            vertical-align: middle;
+            background-image: image-url('framework/icon/chevron-rightWhite.png');
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.sceanceEnCours {
+  margin-top: 1em;
+  padding: 0 1em;
+  margin-bottom: 2em;
+  h2 {
+    text-align: left;
+    margin-bottom: 1em;
+  }
+  .sceance {
+    @include c(12);
+    margin-top: 1em;
+    position: relative;
+    max-width: 200px;
+    height: 200px;
+    border: 1px solid $mc;
+    padding-bottom: 1em;
+    &:hover, &:focus {
+
+      .titre {
+
+      }
+      .number {
+
+      }
+      .text {
+
+      }
+      .overImage {
+        display:block;
+        @include single-transition(opacity, 0.3s, ease);
+      }
+    }
+    .overImage {
+      display: none;
+      @include abs();
+      text-align: center;
+      box-sizing: border-box;
+      // z-index: 10;
+      a {
+        height: 32px;
+        font-family: $ff2;
+        margin: auto;
+        margin-top: 40%;
+        & + a {
+          margin-top: 40%;
+          @include cl-nm(5);
+          margin-left: 15px;
+
+        }
+
+      }
+    }
+    .titre {
+      background-color: $mc;
+      height: 40px;
+      @include box-shadow(rgba(black, 0.2) 0 2px 2px 0px);
+      h3 {
+        border-bottom: 0;
+        margin: 0 auto;
+        color: white;
+        padding-top: 10px;
+      }
+    }
+    .number {
+      font-size: 4.778em;
+      display: block;
+      margin: auto;
+      text-align: center;
+      font-weight: bold;
+
+    }
+    .text {
+      text-align: center;
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
+.mesCours {
+  margin-top: 1em;
+  padding: 0 1em;
+  margin-bottom: 2em;
+
+  h2 {
+    text-align: left;
+    margin-bottom: 1em;
+  }
+  .cours {
+    @include c(12);
+    background-color: white;
+    //margin-top: 1em;
+    position: relative;
+    max-width: 250px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 1px solid $mc;
+    &:hover, &:focus {
+      .titre {
+
+      }
+      .horaire {
+
+      }
+
+      .overImage {
+        display:block;
+        @include single-transition(opacity 0.3s ease 0.3s);
+      }
+    }
+    .titre {
+      @include c(9);
+      float: left;
+      padding-top: 33px;
+      height: 100%;
+      background-color: white;
+      h3 {
+        border-bottom: 0;
+        margin: 0 auto;
+        color: $tc;
+        padding-top: 10px;
+        max-width: 100%;
+        word-break: break-all;
+
+      }
+    }
+    .horaire {
+      @include cl-nm(3);
+      height: 100%;
+      background-color: $mc;
+      padding: 0 5px;
+      font-family: $ff2;
+      color: white;
+      background-color: $mc;
+      .debut, .fin {
+        height: 50%;
+        text-align:center;
+        display: block;
+        box-sizing: border-box;
+        padding-top: 25%;
+        font-weight: bold;
+        margin: auto;
+      }
+
+      .debut {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+      }
+      .fin {
+
+      }
+    }
+    .overImage {
+      display:none;
+      height: 100px;
+      @include abs();
+      font-family: $ff2;
+      @include transition(all 0.3s ease);
+      display:none;
+      // z-index: 10;
+      a {
+        margin-top: 30px;
+        margin-left: 33%;
+
+      }
+    }
+  }
+}
+.helper{
+  display:none; 
+}
+.gererMesCours {
+  @extend .mesCours;
+  @include c(12);
+  padding: 1em;
+  padding-bottom: 3em;
+  h2{
+    border-bottom: 0;
+  }
+  
+  .cours {
+    margin-bottom: 1em;
+    &:hover,&:focus{
+      .groupe {
+        @include single-transition(opacity,0.3s,ease);
+        //opacity: 0.5;
+      }
+    }
+    .overImage{
+      display:none;
+      a{
+        float:left;
+        margin-top: 40px;
+        margin-left: 30px;
+        &+a{
+          margin-left: 20px;
+        }
+      }
+
+    }
+    .titre {
+      padding-top: 0;
+      height: auto;
+      margin-top: 25px;
+      h3 {
+        padding-bottom: 0;
+      }
+      .option {
+        display: block;
+        text-align: center;
+        color: lighten($tc, 10%);
+      }
+
+    }
+    .groupe {
+      background-color: $mc;
+      height: 30px;
+      display:inline-block;
+      line-height: 30px;
+      //opacity: 1;
+      min-width: 50px;
+      position: absolute;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      vertical-align: middle;
+      font-family: $ff2;
+    }
+    .horaire {
+      top: 0;
+    }
+  }
+}
+
+.calendrier {
+  background-color: $greyL;
+  padding: 3em 0;
+  &:after {
+    @include clear();
+  }
+}
+
+.planning {
+  margin-top: 1em;
+  padding: 0 1em;
+  float: left;
+  @include c(12);
+  margin-bottom: 2em;
+  position: relative;
+  &:after {
+    @include clear();
+  }
+  .jour {
+    display: block;
+    width: 100%;
+    margin-top: 1em;
+    font-size: 1.272em;
+    text-align: center;
+  }
+  .day {
+    @include c(12);
+    height: 150px;
+    width: 150px;
+    border: 1px solid $tc;
+    position: relative;
+    background-color: white;
+    & + .day {
+      @include c(12);
+    }
+    &:hover, &:focus {
+      .overDay {
+        display:block;
+        @include single-transition(opacity 0.3s ease 0.3s);
+
+      }
+    }
+    .overDay {
+      display:none;
+      @include abs-bot();
+      // z-index: 10;
+      text-align: center;
+      a {
+        display: inline-block;
+      }
+    }
+    .number {
+      font-size: 1.825em;
+      margin-left: $pd;
+      font-weight: bold;
+      display: inline;
+      text-align: left;
+      color: $greyD;
+      width: 100%;
+      pointer-events: none;
+      margin-top: 10%;
+      position: relative;
+      z-index: 20;
+      &:after {
+        content: ".";
+      }
+    }
+    .sceances {
+      @include c(12);
+      color: white;
+      position: relative;
+      height: 100%;
+      z-index: 10;
+      padding:0 5px;
+      pointer-events: none;
+      @include abs-bot();
+      &:hover, &:focus {
+        //opacity: 1;
+      }
+      li {
+        @include c(12);
+        padding: 0 5px;
+        margin:2.5px 0;
+        @include border-radius(5px);
+        pointer-events: auto;
+        background-color: #d97d1a;
+        border-bottom: 1px solid white;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        position:relative;
+        cursor: pointer;
+        display:inline-block;
+        vertical-align: middle;
+        z-index: 1;
+        @include single-transition(all, 0.2s, ease);
+        a{
+          color:white;
+          @include a();
+          display:block;
+          width:100%;
+          height:100%;
+        }
+        .overSeance {
+          color: $tc;
+        }
+        &:hover, &:focus {
+         // @include scale(1.1);
+         @include single-transition(all, 0.2s, ease);
+         border-bottom: 0;
+         z-index: 2;
+         position:relative;
+         @include box-shadow(rgba(black, 0.3) 0 0 4px 0);
+       }
+     }
+     .H1 {
+      height: 12.5%;
+    }
+    .H2 {
+      height: 25%;
+    }
+    .H3 {
+      height: 37.5%;
+    }
+    .H4 {
+      height: 50%;
+    }
+    .H5 {
+      height: 62.5%;
+    }
+    .H6 {
+      height: 75%;
+    }
+    .H7 {
+      height: 87.5%;
+    }
+    .H8 {
+      height: 100%;
+    }
+  }
+}
+}
+
+.addContent {
+
+  color: white;
+  @include c(12);
+  display: none;
+  padding: 1em;
+  min-height: 100%;
+  a {
+    color: white;
+  }
+  h3 {
+    margin-top: $pd;
+    border-bottom: 0;
+  }
+  .wrapper {
+    padding-bottom: 1em;
+    border-bottom: 1px solid $greyL;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  .sceance {
+    border: 1px solid $greyL;
+    padding: $pd;
+    margin: $pd 0;
+    box-sizing: border-box;
+    @include border-radius($pd);
+    span {
+      display: block;
+    }
+  }
+
+}
+
+/* END INDEX CO*/
+.main {
+  background-color: white;
+  //padding-bottom: 3em;
+  &:after {
+    @include clear();
+  }
+  .title {
+  }
+}
+
+.right {
+  background-color: $mc;
+}
+
+/* BREADCRUMB */
+
+.breadcrumbs {
+  padding: 0;
+  height: 40px;
+  @include ellipsis(true);
+  box-sizing: border-box;
+  background-color: $greyL;
+  .wrapper {
+    padding: 0 1em;
+  }
+  a, span {
+    display: inline-block;
+    color: $tc;
+    margin-top: 8px;
+  }
+  span{
+    color:lighten($tc,10%);
+  }
+}
+
+/* END BREADCRUMB */
+
 /* FOOTER */
-.foot{
-	position:relative;
-	min-height:150px;
-	background-color:$mc;
-	color:white;
-	padding:1em;
-	box-sizing:border-box;
-	height:30%;
-	a{
-		color:white;
-	}
-	.copyright{
-		position:absolute;
-		bottom:10px;
-		right:0;
-		left:0;
-		text-align: center;
-	}
+.foot {
+
+  background-color: $mc;
+  min-height: 150px;
+  position: relative;
+  height: auto;
+  display: block;
+  .wrapper{
+    position:static;
+  }
+  .copyright {
+    padding: 0 1em;
+    @include abs-bot();
+    text-align: center;
+    color: white;
+    bottom: 10px;
+    a {
+      color: white;
+      border-top: 1px solid transparent;
+      border-bottom: 1px dotted white;
+
+      &:hover,&:focus{
+        border-top: 1px solid white;
+        border-bottom: 0;
+      }
+    }
+  }
 }
+
 /* END FOOTER */
-/* MENU PROF */
-.menuProf{
+/* POP UP */
+.popupCreer{
+  display:none;
+  @include abs();
+  top:auto;
+  bottom:0;
+  z-index:200;
+  padding:1em;
+  @include box-sizing(border-box);
+  width:400px;
+  height:auto;
+  min-height:250px;
+  background-color: $greyL;
+  @include box-shadow($greyL2 0 0 4px 0);
+  border:1px solid $greyL2;
+  .close{
 
-	@include cfl(3);
-	background-color: $mc;
-	height:200px;
-	color:white;
-	text-align: center;
-	vertical-align: middle;
-	a{
-		color:white;
-		font-weight: bold;
-		display:block;
-		width:100%;
-		height:100%;
-		margin: auto;
-	}
+    width:16px;
+    height:16px;
+    background-image: image-url('framework/icon/close.png');
+    @include abs-top-left();
+    a{
+      text-indent: -99999px;
+      display:block;
+      @include a();
+    }
+  }
+  hr{
+    margin-bottom: 0.5em;
+  }
+  .leftForm{
+    @include cfl(5.5);
+    margin-bottom: 1em;
+  }
+  .rightForm{
+    @include cl(5.5);
+    @include offsetL(1);
+    margin-bottom: 1em;
+  }
+  label{
+    @include c(12);
+    padding-bottom: 0;
+  }
+  input{
+    @include c(12);
+    margin-top: 0;  
+  }
+  select{
+    @include c(12);
+  }
+  input[type="submit"]{
+
+  }
 }
-.menuCrud{
-
-	@include cfl(12);
-	background-color: $mc;
-	height:200px;
-	color:white;
-	text-align: center;
-	vertical-align: middle;
-	a{
-		color:white;
-		font-weight: bold;
-		display:block;
-		width:100%;
-		height:100%;
-		margin: auto;
-	}
+.popupModifier{
+  @extend .popupCreer;
+  display:none;
 }
-.menuCrud + .menuCrud{
+.popupSupprimer{
+  @extend .popupCreer;
+  display:none;
+  select{
+    margin-bottom: 1em;
+  }
+}
+.popupVoir{
+  @extend .popupCreer;
+  display:none;
+  select{
+    margin-bottom: 1em;
+  }
+}
+.popupAjouter{
+  @extend .popupCreer;
+  display:none;
+  select{
+    margin-bottom: 1em;
+  }
+}
+.popupModifierThis{
+  @extend .popupModifier;
+}
+.popupSupprimerThis{
+  @extend .popupSupprimer;
+}
+.popupSupprimerEleves{
+  @extend .popupSupprimer;
+}
+/* END POP UP */
+/*  presenceTotalCours */
+.dataGraph{
+  display:none;
+}
+.presenceTotalCours{
+  @include c(12);
+  padding:1em;
+  h2{
+    border-bottom: 0;
+    text-align: left;
+  }
+  .pourcentagePresenceTotalCours{
+    @include c(12);
+    
+    font-weight: bold;
+    text-align: center;
+    margin:1em auto;
+    margin-bottom: 3em;
 
-	@include cl(12);
+    li{
+      background-color: $greyL;
+      max-width: 180px;
+      margin: auto;
+      margin-bottom: 1em;
+      height:150px;
+      border:1px solid $greyD;
+    }
+    .percent{
+      font-size: 60px;
+      text-align: center;
+      @include c(12);
+
+    }
+    .annee{
+      font-size: 24px;
+      @include c(12);
+      margin-bottom: $pd;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      display:block;
+      color:white;
+      background-color: lighten(red,13%);
+      border-bottom:1px solid $greyD;
+    }
+  }
+  .graphPresenceTotalCours{
+    @include c(12);
+    margin:$pd auto;
+    canvas{
+      margin: auto;
+      width:400px;
+      max-width: 100%;
+      position:relative;
+      display:block;
+      overflow:visible;
+    }
+  }
+  .graphPresenceTotalCoursProf{
+    @extend .graphPresenceTotalCours;
+  }
 
 }
-.menuProf + .menuProf{
+.presenceCours{
+  padding:1em;
+  padding-bottom: 3em;
+  h2{
+    text-align: left;
+  }
+}
+.graphPresenceCours{
 
-	@include cl(3);
-	
+  canvas{
+    max-width:100%;
+    max-height: 400px;
+    position:relative;
+    z-index: 0; 
+  }
+}
+.presenceParCours{
+  @include c(12);
+  padding:1em;
+  padding-bottom: 3em;
+  h2{
+    border-bottom: 0;
+    text-align: left;
+  }
+  .pourcentagePresenceParCours{
+    @include cl-nm(6);
+    margin:$pd auto;
+    text-align: center;
+
+    font-weight: bold;
+    .percent{
+      font-size: 50px;
+      line-height: 50px;
+    }
+    .nom{
+      font-weight: normal;
+      background-color: $tc;
+      padding:$pd;
+      @include border-radius(50%);
+      color:white;
+      width:auto;
+      margin: auto;
+      margin-bottom: $pd;
+      a{
+        color:white;
+        border:0;
+      }
+    }
+    span{
+      display:inline-block;
+      width:100%;
+      text-align: center;
+    }
+  }
+}
+.presenceTotalCoursAnnee{
+  @include c(12);
+  padding:1em;
+  h2{
+    border-bottom: 0;
+    text-align: left;
+  }
+  .pourcentagePresenceTotalCoursAnnee{
+    @include c(12);
+    font-weight: bold;
+    text-align: center;
+    margin:1em auto;
+    margin-bottom: 3em;
+
+    li{
+      background-color: $greyL;
+      max-width: 160px;
+      margin: auto;
+      margin-bottom: 1em;
+      height:150px;
+      border:1px solid $greyD;
+    }
+    .percent{
+      font-size: 60px;
+      text-align: center;
+      @include c(12);
+
+    }
+    .annee{
+      font-size: 24px;
+      @include c(12);
+      margin-bottom: $pd;
+      height: 40px;
+      line-height: 40px;
+      vertical-align: middle;
+      display:block;
+      color:white;
+      background-color: lighten(red,13%);
+      border-bottom:1px solid $greyD;
+    }
+  }
+  .graphPresenceTotalCours{
+    @include c(12);
+    margin:$pd auto;
+    canvas{
+      margin: auto;
+      width:400px;
+      position:relative;
+      display:block;
+      overflow:visible;
+    }
+  }
 
 }
+/*  END presenceTotalCours */
+/* VOIR COURS */
+.gererMonCours{
+  @extend .gererMesCours;
+  margin-bottom: 1em;
+  .cours{
+    float:none;
+    margin:1em auto;
+    .overImage{
+      .btn{
+        margin-left: 10px;
+        float:left;
+      }
+    }
+  }
+}
+.elevesDuCours{
+  margin-bottom: 1em;
+  padding:1em;
+  @include c(12);
+  h2{
+    text-align: left;
+  }
+  .eleve{
+    @include cl-nm(6);
+    max-width: 150px;
+    padding:$pd;
+    a{
+      color:$tc;
+      @include a();
+      display:block;
+      @include transition(all 0.3s ease);
+      &:hover{
+        background-color: $greyL;
+        @include transition(all 0.3s ease);
+      }
+    }
+    .percent{
+      font-size: 34px;
+      width:80px;
+      text-align: center;
+      margin: auto;
+      height:80px;
+      @include box-sizing(border-box);
+      line-height: 80px;
+      background-color: $tc;
+      color:white;
+      display:none;
+      margin-bottom: 5px;
+      @include border-radius(50%);
+      font-weight: bold;
+      span{
+        vertical-align: middle;
+        text-align: center;
+        display:inline-block;
+        height:auto;
+      }
+    }
+    img{
+      max-width: 80px;
+      margin: auto;
+      display:block;
+      @include border-radius(50%);
+      margin-bottom: 5px;
+    }
+    span{
+      display:inline-block;
+      width:100%;
+      text-align: center;
+    }
+    .nom{
+      font-weight: bold;
 
-/* END MENUPROF */
+    }
+    .groupe{
 
-/* JS */
-.presence{
-	position:relative;
-	//cursor:pointer;
-	@include cl(3);
-	height:150px;
-	overflow: hidden;
-	& + .presence{
-		@include cl(3);
-	}
-	.image{
-		display:block;
-		position:relative;
-		overflow: hidden;
-		height:100px;
-		width: 100px;
-		margin: auto;
-		@include border-radius(50px);	
-		img{
-			@include abs();
-			max-width: 100%;
-		}
-		z-index: 1;
-	}
-	.eleve{
-		text-align: center;
-		@include abs-bot();
-		color:black;
-		
-		z-index: 3;
-	}
-	&:hover .presenceChoice , &:focus .presenceChoice{
-		@include single-transition(all,0.3s,ease,0.2s);
-		
-		opacity: 1;
-		height: 100%;
-		& + .eleve{
-			@include single-transition(color,0.5s,ease,0.2s);
-			color:white;
-		}
-	}
-	&.notDone{
-		background-color: darken($infosBackground,10%);
-	}
-	&.notOk{
-		background-color: $errorBackground;
-	}
-	&.ok{
-		background-color: $succesBackground;
-	}
+    }
+  }
+  .presenceGroupe{
+    @include c(12);
+    margin:1em auto;
+    padding:1em;
+    text-align: center;
+    color:white;
+    display:none;
+    
+    h3{
+      line-height: 1.1;
+      color:$tc;
+    }
+    .percent{
+      font-size: 38px;
+      background-color: $tc;
+      font-weight: bold;
+      height:80px;
+      line-height: 80px;
+      vertical-align: middle;
+      @include border-radius(50%);
+      display:inline-block;
+      width:80px;
+    }
+  }
+
+}
+.sceancesNext,.sceancesOld{
+  padding:1em;
+  text-align: center;
+  height:100%;
+  padding-bottom: 3em;
+  ol{
+    font-size: 18px;
+    text-align: center;
+    font-style: italic;
+    display:inline-block;
+    width:auto;
+    font-weight: bold;
+    list-style-type: decimal;
+    li{
+      line-height: 1.8;
+
+      a{
+        display:inline;
+        &:hover,&:focus{
+          border-top: 0;
+          display:inline;
+        }
+      }
+    }
+  }
+}
+.sceancesNext{
+
+}
+.sceancesOld{
+  ol{
+    li{
+      a{
+        color:$tc;
+      }
+    }
+  }
+}
+/* END VOIR COURS*/
+/* SCEANCES */
+.planningSceances{
+  @extend .planning;
+  padding:1em;
+
+}
+.ligneSceances{
+  @include c(12);
+  padding:1em;
+  padding-bottom: 3em;
+  position:relative;
+  text-align: center;
+  .moreContent{
+    display:inline-block;
+    text-align: center;
+    margin: auto;
+    color:$tc;
+    font-size: 18px;
+    margin-top: 1em;
+
+  }
+
+  .ligne{
+    @include c(12);
+    min-height: 300px;
+    height:100%;
+    position:relative;
+    .anneeEcole{
+      @include cfl(2);
+      @include abs-left();
+      padding:1em $pd;
+      height:100%;
+      min-height: 300px;
+      width:100px;
+      border-right: 1px solid $greyL2;
+      background-color: $greyL;
+      display:none;
+
+      label{
+        display:block;
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+      input{
+        margin-top: 0;
+        display:block;
+        float:none;
+        max-width:100%;
+      }
+      .anneeTemps{
+
+        .betweenAnnee{
+          @include abs();
+          display:block;
+          min-height: 50px;
+          height:60%;
+          margin:auto;
+          span{
+            width:50%;
+            min-height: 50px;
+            @include box-sizing(border-box);
+            display:block;
+            height:100%;
+            border-right: 1px solid $greyL2;
+            &:after{
+              @include clear();
+            }
+          }
+        }
+        li{
+          line-height: 1;
+          display:inline-block;
+          text-align: center;
+          span{
+            display:inline-block;
+            width:100%;
+          }
+          .separatorDate{
+            line-height: 0.5;
+            height:5px;
+          }
+        }
+
+        .one{
+          @include abs-top();
+          top:1em;
+        }
+        .two{
+          @include abs-bot();
+          bottom:1em;
+        }
+      }
+    }
+    .temps{
+
+      position: relative;
+      height:100%;
+
+      &:after{
+        content:"";
+        width:2px;
+        height:100%;
+        background-color: $greyL2;
+        @include abs();
+        z-index: 0;
+        visibility:visible;
+      }
+
+    }
+    .mois{
+      margin:0 auto;
+      position:relative;
+      width: 80px;
+      text-align: center;
+      background-color: darken($greyD2,10%);
+      line-height: 30px;
+      color:white;
+      font-weight: bold;
+      height: 30px;
+      z-index: 1;
+      span{
+        vertical-align: middle;
+      }
+    }
+
+    .sceancesMois{
+      @include c(12);
+      margin:$pd 0;
+      li{
+        font-size: 18px;
+        margin:$pd 0;
+        position:relative;
+        a{
+
+          color:$tc;
+        }
+      }
+      .impair{
+        @include cfl(6);
+        text-align: right;
+        padding-right: 2em;
+        &:after{
+          content:"";
+          visibility:visible;
+          @include abs-right();
+          width:1.8em;
+          background-color: $greyL2;
+          height:1px;
+
+        }
+      }
+      .pair{
+        @include cl(6);
+        padding-left: 2em;
+        text-align: left;
+        margin-top: 2em;
+        margin-bottom: 0;
+        &:before{
+          content:"";
+          visibility:visible;
+          @include abs-left();
+          width:1.8em;
+          background-color: $greyL2;
+          height:1px;
+        }
+      }
+    }
+  }
+}
+.gererMaSceance{
+  @extend .sceanceEnCours;
+}
+.graphPresenceParGroupe{
+  @include c(12);
+  canvas{
+    max-width: 100%;
+  }
+  h3{
+
+  }
+}
+/* END SCEANCES */
+/* OVERLAY */
+.overlay{
+  width:100%;
+  height:100%;
+  display:none;
+  @include abs();
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0 ,0 , 0 ,0.9);
+}
+/* END OVERLAY */
+/* PAGINATION */
+.nextOrOld{
+  @include c(12);
+  padding:1em 0;
+  font-weight: bold;
+  font-size: 18px;
+  max-width: 500px;
+  text-align: center;
+  a{
+    float:left;
+    &+a{
+      float:right;
+    }
+  }
+}
+/* END PAGINATION */
+/* ELEVES*/
+.autoCompletionEleves{
+  @include abs(); 
+  background-color: white;
+  font-weight: bold;
+  top:80px;
+  @include box-shadow( $greyL2 0 0 2px 0); 
+  bottom:auto;
+  z-index: 100;
+  border:1px solid $greyL2;
+  display:none;
+  li{
+
+    a{
+      color:$tc;
+      padding:$pd/2 $pd;
+      display:block;
+      @include a();
+      &:hover,&:focus{
+        background-color: lighten($mc,20%);
+      }
+    }
+  }
+  .active a{
+    background-color: lighten($mc,10%);
+    &:hover,&:focus{
+      background-color: lighten($mc,5%);
+    }
+  }
+}
+.listEleves{
+  padding:1em 0;
+  .search{
+    min-height: 50px;
+    @include c(12);
+    position: relative;
+    max-width: 300px;
+    label{
+      @include c(12);
+      padding-bottom: 0;
+    }
+    input{
+      margin-top: 0;
+    }
+    input[type="search"]{
+      @include cfl(8);
+    }
+    input[type="submit"]{
+      @include cl(4);
+    }
+  }
+  .list{
+    @include c(12);
+    position:relative;
+    min-height: 300px;
+    margin:auto;
+    padding:1em;
+    .identifier{
+      @include cfl(2);
+      @include abs-left();
+      width:100px;
+      background-color: $greyL;
+      padding:$pd;
+      border-right: 1px solid $greyL2;
+      border-top: 1px solid $greyL2;
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
+      span{
+        border-right: 3px solid $greyD2;
+        padding-right: $pd;
+        display:block;
+      }
+    }
+    .range{
+      @include c(12);
+      position:relative;
+    }
+    .eleves{
+      @include c(12);
+      display:block;
+      padding-left: 100px;
+      font-size: 18px;
+      li{
+        @include c(12);
+        padding:$pd 0;
+        border-bottom: 1px solid $greyL2;
+        span{
+         display:block;
+         a{
+          padding:2px;
+        }
+        a:focus,a:hover{
+          outline:2px solid white;
+        }
+      }
+      .nom{
+        @include cfl(5);
+        font-weight: bold;
+        display:inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+        max-width: 200px;
+      }
+      .anneeLevel{
+        @include cl(2);
+        max-width: 100px;
+      }
+      .groupe{
+        @include cl(3);
+        max-width: 150px;
+      }
+      .option{
+        @include cl(2);
+        max-width: 100px;
+      }
+    }
+    .headerList{
+      background-color: $greyL;
+      padding:$pd $pd;
+      margin-bottom: $pd;
+    }
+  }
+}
+}
+.ficheEleve{
+  @extend .gererMaSceance;
+  position:relative;
+  b{
+    font-weight: bold;
+  }
+  .vcard{
+    @include c(12);
+    max-width: 300px;
+  }
+  .photo{
+    margin: auto;
+    display:inline-block;
+    img{
+      max-width: 100%;
+    }
+  }
+  .eleveNom{
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .groupe{
+    .list{
+      display:list-item;
+      list-style-type: circle;
+      margin-left: 1em;
+    }
+  }
+}
+/* END ELEVES*/
+/* GROUPES */
+.listGroupes{
+  padding:1em;
+  .groupe{
+    @include cl(12);
+    margin-bottom: gutter();
+    width:auto;
+    color:white;
+    a{
+      color:white;
+      @include c(12);
+      background-color: $tc;
+      @include a();
+      padding:$pd;
+      text-align: center;
+      &:hover,&:focus{
+        background-color: lighten($tc,10%);
+      }
+    }
+    .nom{
+      font-weight: bold;
+      font-size: 18px;
+      display:inline-block;
+      @include c(12);
+    }
+    .nbEleve{
+      font-size: 0.8em;
+      display:inline-block;
+    }
+
+  }
+}
+.elevesGroupe{
+  @extend .elevesDuCours;
+  @include c(12);
+  padding:1em;
+  h3{
+    text-align: left;
+  }
+}
+.groupeDetails{
+  @extend .elevesDuCours;
+  @include c(12);
+
+  padding:1em;
+  h3{
+    text-align: left;
+  }
+  b{
+    font-weight: bold;
+  }
+  ul{
+    font-size: 18px;
+  }
+  .option,.groupe{
+    ul{
+      display:list-item;
+      list-style-type: circle;
+      margin-left: 1em;
+    }
+  }
+}
+/* END GROUPES */
+/* CONFIG */
+.couleur{
+  @include c(12);
+  padding:1em;
+  h2{
+    text-align: left;
+  }
+  button{
+    min-width: 200px;
+    height:40px;
+    margin-left: gutter();
+    font-size: 15px;
+  }
+}
+.config{
+  margin:1em 0;
+  @include c(12);
+  background-color: $greyL;
+  padding:1em;
+  margin-bottom: 3em;
+
+  h3{
+    text-align: left;
+  }
+  ul{
+
+    li{
+      display:block;
+      margin-left: 1em;
+      line-height: 40px;
+      min-height: 40px;
+      font-size: 18px;
+      margin-bottom: $pd;
+      label{
+        float:left;
+        vertical-align: middle;
+        min-width: 150px;
+        padding:0;
+      }
+      input{
+        float:left;
+        margin-left: 1em; 
+        width:40px;
+      }
+    }
+  }
+}
+input[type="color"]{
+  padding:0;
+  margin:0;
 }
 
-.presenceChoice{
-	@include single-transition(all,0.2s,ease,0.3s);
-	display:block;
-	opacity: 0;
-	padding-top: 1em;
-	height: 100%;
-	overflow: hidden;
-	z-index: 2;
-	@include abs-top();
-	text-align: center;
-	background-color: rgba(0,0,0,0.8);
-	li{
-
-	}
-	
-}
-/*  */
-/* MEDIA */
+/*  END CONFIG */
+/* MEDIA QUERIES */
 @import "responsive";
-/* END MEDIA */
+/* END MEDIA*/

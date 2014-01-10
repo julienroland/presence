@@ -31,13 +31,15 @@ class ErrorHandlerTest extends \PHPUnit_Framework_TestCase
      */
     protected $displayErrors;
 
-    public function setUp() {
+    public function setUp()
+    {
         $this->errorReporting = error_reporting(E_ALL | E_STRICT);
         $this->displayErrors = ini_get('display_errors');
         ini_set('display_errors', '1');
     }
 
-    public function tearDown() {
+    public function tearDown()
+    {
         ini_set('display_errors', $this->displayErrors);
         error_reporting($this->errorReporting);
     }
@@ -102,7 +104,7 @@ PHP
         set_exception_handler(array($exceptionHandler, 'handle'));
 
         $that = $this;
-        $exceptionCheck = function($exception) use ($that) {
+        $exceptionCheck = function ($exception) use ($that) {
             $that->assertInstanceOf('Symfony\Component\Debug\Exception\ContextErrorException', $exception);
             $that->assertEquals(E_NOTICE, $exception->getSeverity());
             $that->assertEquals(__LINE__ + 40, $exception->getLine());
@@ -197,7 +199,7 @@ PHP
         $logger = $this->getMock('Psr\Log\LoggerInterface');
 
         $that = $this;
-        $warnArgCheck = function($message, $context) use ($that) {
+        $warnArgCheck = function ($message, $context) use ($that) {
             $that->assertEquals('foo', $message);
             $that->assertArrayHasKey('type', $context);
             $that->assertEquals($context['type'], ErrorHandler::TYPE_DEPRECATION);

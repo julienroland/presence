@@ -3,11 +3,13 @@ $col: 12 ;
 
 $col_margin: 0 ;
 $gout: $gutter;
+
 @function colAlone($nNumber){
 
   @return ($nNumber / $col * 100%);
 
 }
+
 @function col($nNumber){
 
   @return ($nNumber / $col * 100%) - (( $gout / $mw * 100% ) / 2);
@@ -15,12 +17,15 @@ $gout: $gutter;
 }
 @function gutter(){
 
-  @return ($gout / $mw * 100%) / 2;
+  @return ($gout / $mw * 100%) / 4;
 
 }
 @function colf($nNumber){
 
-  @return ($nNumber / $col * 100%) - (( $gout / $mw * 100% ) / 2) ;
+  @return ($nNumber / $col * 100%) - (( $gout / $mw * 100% ) / 2);
 
+}
+@function colParent($nNumber , $nParent){ //8 - 9 ==75%
+  @return (($mw / 100) * (($nParent / $col ) * 100))/ ($mw / 100)*$nNumber+px;
 }
 /*l * 100 / 1024*/

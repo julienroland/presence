@@ -1,11 +1,11 @@
 <?php
 
-class DeconnecterController extends BaseController {
+class DeconnecterController extends \BaseController {
 
-	public function deconnecter()
+	public function index()
 	{
 		Auth::logout();
 		Session::forget('user');
-		return Redirect::intended('/');
+		return Redirect::to('/');
 	}
 }

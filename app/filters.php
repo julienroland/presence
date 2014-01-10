@@ -40,7 +40,7 @@ Route::filter('connected', function()
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('identifier');
+	if (Auth::guest()) return Redirect::guest('/');
 });
 
 

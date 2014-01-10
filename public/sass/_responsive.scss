@@ -1,5 +1,460 @@
-@import "variables";
-@import "mixin";
 @import "compass";
-@import "compass/css3";
-@import "icons";
+@import "variables";
+
+@media(min-width: 500px) {
+  /* INDEX PAS CO */
+  .logo {
+    h1 {
+      font-size: 2.618em;
+    }
+  }
+  .temps{
+   // margin-left: 100px;
+ }
+ 
+ .ligneSceances{
+  .moreContent{
+      //margin-left: 100px;
+    }
+    .ligne{
+      .anneeEcole{
+        display:block;
+      }
+    }
+  }
+  .elevesDuCours{
+    .eleve{
+      @include cl-nm(4);
+    }
+  }
+  .sceancesNext{
+    @include cfl(5.5);
+    @include offsetR(0.5);
+  }
+  .sceancesOld{
+    @include cl(5.5);
+    @include offsetL(0.5);
+  }
+  .banner{
+    min-height: 180px;
+  }
+  .intro {
+    display: block;
+    margin: 1em auto;
+  }
+  .connexion {
+    @include box-shadow(rgba(0, 0, 0, 0.3) 0 0 10px 0px);
+    padding: 1em;
+    input[type='submit'] {
+      @include cr(6);
+    }
+    .problemeCompte {
+      @include cfl(6);
+      margin-top: 0.5em;
+      text-align: left;
+      a {
+        display: inline-block;
+        width:auto;
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+  .presenceTotalCoursAnnee{
+    @include cfl(9);
+    .pourcentagePresenceTotalCoursAnnee{
+      li{
+        @include cfl(6);
+        & + li{
+          @include cl(6);
+        }
+      }
+    }
+  }
+  /* END INDEX PAS CO */
+  /* INDEX CO */
+  .news {
+    padding: 3em 0;
+    background-color: white;
+    width: 100%;
+    &:after {
+      @include clear();
+    }
+  }
+  .calendrier {
+
+    &:after {
+      @include clear();
+    }
+  }
+
+  .sceanceEnCours {
+    @include cl(6);
+    &:after {
+      @include clear();
+    }
+    h2 {
+      text-align: left;
+      
+    }
+    .sceance {
+      margin: auto;
+    }
+  }
+  .mesCours {
+    @include cfl(6);
+   // padding:0em;
+   &:after {
+    @include clear();
+  }
+  .cours {
+    margin: auto;
+    @include c(12);
+    margin-bottom: $pd;
+  }
+  h2 {
+
+    text-align: left;
+  }
+}
+.gererMesCours{
+  @include c(12);
+}
+.planning {
+
+  h2 {
+    text-align: left;
+  }
+  .groupe {
+    @include cl-nm(4);
+  }
+  .jour {
+      //@include cl-nm(6);
+    }
+    .day {
+      //@include cl-nm(6);
+    }
+  }
+  /* END INDEX CO */
+  .presenceParCours{
+    .pourcentagePresenceParCours{
+      @include cl-nm(4);
+    }
+  }
+  .sceances{
+    @extend .sceanceEnCours;
+    @include c(12);
+
+  }
+  .gererMaSceance{
+    @include c(12);
+    padding:1em;
+  }
+}
+@media(min-width: 600px) {
+  .gererMesCours{
+    .cours{
+      @include cfl(6);
+      & + .cours{
+        @include cl(6);
+
+      }
+    }
+  }
+}
+@media(min-width: 700px) {
+  .presenceParCours{
+    .pourcentagePresenceParCours{
+      @include cl-nm(3);
+      .nom{
+        margin-bottom: 1em;
+      }
+    }
+  }
+  .config{
+    @include cfl(6);
+    & +.config{
+      @include cl(6);
+    }
+  }
+  .elevesDuCours{
+    .eleve{
+      @include cl-nm(3);
+    }
+  }
+  .presenceTotalCours {
+    &:after{
+      @include clear();
+    }
+    .pourcentagePresenceTotalCours{
+      @include cfl(4);
+      margin-top: 1%;
+      font-size: 120px;
+    }
+    .graphPresenceTotalCours{
+      @include cl(8);
+    }
+  }
+}
+@media(min-width: 800px) {
+  .banner {
+    min-height: 250px;
+    position: relative;
+
+  }
+  .listEleves{
+    @include cfl(9);
+  }
+  .presenceTotalCoursAnnee{
+    @include cfl(9);
+  }
+  .presenceCours{
+    @include cfl(9);
+  }
+  .actionsSmall{
+    display:none;
+  }
+  .sceancesNext,.sceancesOld{
+    @include cl(4.5);
+  }
+  .quote{
+    width:auto;
+    display:inline-block;
+    font-size: 18px;
+    text-align: center; 
+    padding-left: 70px;
+    padding-right: 70px;
+    &:before{
+      display:block;
+    }
+    &:after{
+      display:block;
+    }
+  }
+  .container {
+    margin-top: 0;
+
+  }
+  .nav {
+    @include abs-bot();
+    top: auto;
+    @include box-shadow(transparent 0 0 0 0);
+    background-color: rgba($mc, 0.4);
+    .menuLow {
+      display: none;
+    }
+
+    .menu {
+      @include cr(10);
+      position: relative;
+      top: 0;
+      height: 50px;
+      padding: 0;
+      max-width: 800px;
+      li {
+        display: inline-block;
+        @include cl-nm(2.4);
+        font-size: 0.8em;
+
+        height: 100%;
+        margin-bottom: 0;
+        text-align: center;
+        line-height: 50px;
+        a {
+          height: 100%;
+          box-sizing: border-box;
+          padding: 0 $pd;
+          color: white;
+          &:hover,&:focus{
+            &:after{
+              content:none;
+            }
+          }
+        }
+        & + li {
+          @include cl-nm(2.4);
+          border-left: 1px solid rgba(white, 0.5);
+        }
+      }
+    }
+  }
+  .planning {
+    @include cfl(12);
+
+    .groupe {
+      @include cl-nm(3);
+    }
+  }
+  .gererMesCours{
+    @include cfl-nm(9);
+    max-width:colParent(9,12);
+    min-height: 400px;
+  }
+  .helper{
+    @include cl-nm(3);
+    max-width:colParent(3,12);
+    padding:1em;
+    @include abs-right();
+    padding-top: 3em;
+    //min-height: 400px;
+    background-color: darken($greyL,5%);
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.8;
+    a{
+      color:$tc;
+    }
+    .active{
+      background-color: $mc;
+      padding:$pd;
+      margin-bottom: $pd;
+      a{
+        color:white;
+        font-weight: bold;
+        border:0;
+        &:hover,&:focus{
+          border:0;
+        }
+      }
+    }
+  }
+  .elevesDuCours{
+    @include cfl(9);
+  }
+  .sceances{
+    @extend .sceanceEnCours;
+    @include cfl(9);
+
+  }
+  .planningSceances{
+    @extend .planning;
+    padding:1em;
+    @include cfl(9);
+
+  }
+  .gererMaSceance{
+    @include cfl(9);
+    padding:1em;
+  }
+  .presenceTotalCours{
+    @include cfl(9);
+  } 
+  .presenceParCours{
+    @include cfl(9);
+  }
+}
+
+@media(min-width: 900px) {
+
+  .logo {
+    h1 {
+      .nom {
+        display: inline-block;
+      }
+      .prenom {
+        color: white;
+      }
+    }
+  }
+  .config{
+    @include cfl(4);
+    & +.config{
+      @include cl(4);
+    }
+  }
+  .main {
+    min-height: 400px;
+    .left {
+      @include cl-nm(9);
+    }
+    .right {
+      @include cl-nm(3);
+    }
+  }
+  .sceanceEnCours {
+    @include cfl(3);
+  }
+  .mesCours {
+    @include cl(9);
+    .cours {
+      @include cl(6);
+
+      & + .cours {
+        @include cl(6);
+      }
+    }
+  }
+  .gererMesCours{
+    @include cfl-nm(9);
+  }
+
+  .addContent {
+
+    @include c(12);
+    max-width: colParent(12, 3);
+    min-height: 100%;
+    margin-left: 0;
+    height: auto !important;
+    .creation {
+
+      li {
+        margin-bottom: $pd;
+        a {
+          text-decoration: none;
+          font-weight: bold;
+          display: block;
+          &:hover, &:focus {
+            text-decoration: underline;
+          }
+
+        }
+      }
+    }
+    .wrapper {
+      margin-bottom: 1em;
+    }
+  }
+  .planning {
+    @include cfl(12);
+    .groupe {
+      @include cl-nm(2.4);
+    }
+  }
+  .gererMonCours{
+    @extend .gererMesCours;
+    .cours{
+      float:none;
+      margin:1em auto;
+    }
+  }
+  .planningSceances{
+    @extend .planning;
+    padding:1em;
+    @include cfl(9);
+
+  }
+  .gererMaSceance{
+    @include cfl(9);
+    padding:1em;
+  }
+}
+
+@media (min-width: $mw) {
+  .planning {
+    @include cfl(12);
+    .groupe {
+      @include cl-nm(2.4);
+    }
+  }
+  .planningSceances{
+    @extend .planning;
+    padding:1em;
+    @include cfl(9);
+
+  }
+}
+
+@media (max-width: $mw) {
+
+}

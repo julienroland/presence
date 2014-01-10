@@ -9,20 +9,29 @@ $nbG:1.618; // nombre d'or
 $bh:1px solid #eee;
 /* typography */
 
-$ff: georgia,helvetica,'Helvetica neue', arial, freesans, clean, sans-serif;
+$ff: palatino, 'palatino lt std', 'palatino linotype', 'book antiqua', garamond, serif;
 
 $ff2: Oswald,georgia,'Helvetica neue', arial, freesans, clean, sans-serif;
 
-$fs:14px; //font-size
+$fs:15px; //font-size
 
-$lh:1.7; //line-height
+$lh:1.5; //line-height
 
-$tc: #333333; //text-color
+$tc: #111111; //text-color
 
+$h1:4.236em;
+
+$h2:3.33em;
+
+$h3:2.618em;
+
+$h4:1.618em;
+
+$pd:0.5em;
 /* END typography */
 
 /*media*/
-$m1:600px;
+$m1:500px;
 
 $m2:1000px;
 
