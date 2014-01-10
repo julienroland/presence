@@ -121,7 +121,7 @@ sup{
       right:0;
     }
     & + span{
-     
+
     }
   }
 }
@@ -675,12 +675,18 @@ a, ul {
     @include clear();
   }
 }
-
+.today{
+  background-color: $greyD2!important;
+  .number{
+    color:white!important;
+  }
+}
 .planning {
   margin-top: 1em;
   padding: 0 1em;
   float: left;
   @include c(12);
+  overflow:hidden;
   margin-bottom: 2em;
   position: relative;
   &:after {
@@ -741,14 +747,15 @@ a, ul {
       }
     }
     .sceances {
-      @include c(12);
+      @include c(6);
+      margin:0!important;
       color: white;
       position: relative;
       height: 100%;
       z-index: 10;
       padding:0 5px;
       pointer-events: none;
-      @include abs-bot();
+      @include abs-right();
       &:hover, &:focus {
         //opacity: 1;
       }
@@ -767,7 +774,8 @@ a, ul {
         cursor: pointer;
         display:inline-block;
         vertical-align: middle;
-        z-index: 1;
+        z-index: 10;
+        pointer-events:auto;
         @include single-transition(all, 0.2s, ease);
         a{
           color:white;
@@ -788,6 +796,7 @@ a, ul {
          @include box-shadow(rgba(black, 0.3) 0 0 4px 0);
        }
      }
+
    }
  }
 
@@ -1000,6 +1009,9 @@ a, ul {
   }
 }
 .popupModifierThis{
+  @extend .popupModifier;
+}
+.popupCreerThis{
   @extend .popupModifier;
 }
 .popupSupprimerThis{
@@ -1806,7 +1818,7 @@ input[type="color"]{
 
 /*  END CONFIG */
 .calendar{
-  @include c(12);
+  @include cfl(12);
   caption{
     font-size: 24px;
     @include c(12);
@@ -1824,6 +1836,9 @@ input[type="color"]{
         @include cl(1.7);
       }
     }
+  }
+  & + .calendar{
+    @include cl(12);
   }
 }
 /* MEDIA QUERIES */

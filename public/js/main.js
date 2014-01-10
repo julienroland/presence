@@ -16,6 +16,7 @@
 	$ligne = $('.ligneSceances'),
 	$popupModifierThis = $('.popupModifierThis'),
 	$popupSupprimerThis = $('.popupSupprimerThis'),
+	$popupCreerThis = $('.popupCreerThis'),
 	$popupSupprimerEleves = $('.popupSupprimerEleves'),
 	$sceanceId,
 	$slugEleve,
@@ -185,7 +186,20 @@
 			e.preventDefault();
 			mouseX = e.pageX; 
 			mouseY = e.pageY;
-			showActionsPlanning(mouseX,mouseY);
+			var $date = $(this).attr('data-date');
+			showActionsPlanning($date,mouseX,mouseY);
+		});
+
+		$actionsPlanning.on('click','a.creer',showCreerThisPopup);
+
+		$('.day .oneSceance').on('click',function(e){
+			e.preventDefault();
+			mouseX = e.pageX; 
+			mouseY = e.pageY;
+			
+			var $id = $(this).attr('data-sceance');
+			showActions($id,mouseX,mouseY);
+			$actionsPlanning.hide();
 		});
 		/* END PLANNING */
 
@@ -486,7 +500,7 @@ var putAucune = function( e ){
 // 			$.each(data.color,function(key){
 // 				console.log($(this));
 
-				
+
 // 				for(var i = 0;i <= $(this).length-1;i++){
 
 // 					oMyColors.key[$(this)[i].cours] = $(this)[i].color;
@@ -514,8 +528,8 @@ var putAucune = function( e ){
 // }
 // })
 
-	
-	
+
+
 // };
 var ajaxChangePresence = function( $eleve, $sceance , $presence){
 	/*$.ajax({
@@ -537,6 +551,7 @@ var showSupprimerThisPopup = function( e ){
 
 
 	$popupModifierThis.hide();
+	$popupCreerThis.hide();
 };
 var showModifierThisPopup = function( e ){
 	e.preventDefault();
@@ -548,6 +563,19 @@ var showModifierThisPopup = function( e ){
 
 
 	$popupSupprimerThis.hide();
+	$popupCreerThis.hide();
+};
+var showCreerThisPopup = function( e ){
+	e.preventDefault();
+	mouseX = e.pageX; 
+	mouseY = e.pageY;
+
+	$popupCreerThis.css({'left':0}).fadeIn();
+	overlay( $popupCreerThis );
+
+
+	$popupSupprimerThis.hide();
+	$popupModifierThis.hide();
 };
 var showSupprimerElevePopup = function( e ){
 	e.preventDefault();
@@ -585,9 +613,9 @@ var showActionsEleves = function($selector, x, y){
 	$actionsEleves.css({'top':y+25,'left':x-100}).fadeIn('fast');
 	
 };
-var showActionsPlanning = function( x, y){
+var showActionsPlanning = function($selector, x, y){
 
-
+	$actionsPlanning.attr('data-id',$selector);
 	$actionsPlanning.css({'top':y+25,'left':x-100}).fadeIn('fast');
 	
 };
@@ -668,7 +696,9 @@ var hideAll = function( e ){
 	$actions.fadeOut();
 	$actionsPresence.fadeOut();
 	$actionsEleves.fadeOut();
+	$actionsPlanning.fadeOut();
 
+	$popupCreerThis.fadeOut();
 	$popupModifierThis.fadeOut();
 	$popupSupprimerThis.fadeOut();
 	$PopupCreer.fadeOut();
