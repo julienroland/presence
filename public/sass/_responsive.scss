@@ -1,5 +1,6 @@
 @import "compass";
 @import "variables";
+@import "mixin";
 
 @media(min-width: 500px) {
   /* INDEX PAS CO */
@@ -126,16 +127,17 @@
   h2 {
     text-align: left;
   }
-  .groupe {
-    @include cl-nm(4);
-  }
-  .jour {
-      //@include cl-nm(6);
+  .day{
+    float:left;
+    margin-left: gutter();
+    margin-right: gutter();
+    & + .day{
+      float:left;
+        margin-left: gutter();
+    margin-right: gutter();
     }
-    .day {
-      //@include cl-nm(6);
-    }
   }
+}
   /* END INDEX CO */
   .presenceParCours{
     .pourcentagePresenceParCours{

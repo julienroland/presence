@@ -609,7 +609,7 @@ sup {
   height: 1px;
   width: 100%; }
 
-.actions, .actionsPresence, .actionsEleves {
+.actions, .actionsPresence, .actionsPlanning, .actionsEleves {
   background-color: #5097bd;
   color: white;
   font-weight: bold;
@@ -622,7 +622,7 @@ sup {
   position: absolute;
   display: none;
   z-index: 20; }
-  .actions span, .actionsPresence span, .actionsEleves span {
+  .actions span, .actionsPresence span, .actionsPlanning span, .actionsEleves span {
     display: block;
     height: 100%;
     text-align: center;
@@ -636,13 +636,13 @@ sup {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin-bottom: 1%; }
-    .actions span:after, .actionsPresence span:after, .actionsEleves span:after {
+    .actions span:after, .actionsPresence span:after, .actionsPlanning span:after, .actionsEleves span:after {
       content: "";
       display: block;
       height: 0;
       clear: both;
       visibility: hidden; }
-    .actions span + span, .actionsPresence span + span, .actionsEleves span + span {
+    .actions span + span, .actionsPresence span + span, .actionsPlanning span + span, .actionsEleves span + span {
       width: 32.33333%;
       margin-left: 0.5%;
       margin-right: 0.5%;
@@ -651,13 +651,13 @@ sup {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box; }
-      .actions span + span:after, .actionsPresence span + span:after, .actionsEleves span + span:after {
+      .actions span + span:after, .actionsPresence span + span:after, .actionsPlanning span + span:after, .actionsEleves span + span:after {
         content: "";
         display: block;
         height: 0;
         clear: both;
         visibility: hidden; }
-  .actions a, .actionsPresence a, .actionsEleves a {
+  .actions a, .actionsPresence a, .actionsPlanning a, .actionsEleves a {
     border-top: 0;
     border-bottom: 0;
     display: inline-block;
@@ -671,10 +671,10 @@ sup {
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease; }
-    .actions a:hover, .actionsPresence a:hover, .actionsEleves a:hover, .actions a:after, .actionsPresence a:after, .actionsEleves a:after {
+    .actions a:hover, .actionsPresence a:hover, .actionsPlanning a:hover, .actionsEleves a:hover, .actions a:after, .actionsPresence a:after, .actionsPlanning a:after, .actionsEleves a:after {
       border-top: 0;
       border-bottom: 0; }
-    .actions a:hover, .actionsPresence a:hover, .actionsEleves a:hover, .actions a:focus, .actionsPresence a:focus, .actionsEleves a:focus {
+    .actions a:hover, .actionsPresence a:hover, .actionsPlanning a:hover, .actionsEleves a:hover, .actions a:focus, .actionsPresence a:focus, .actionsPlanning a:focus, .actionsEleves a:focus {
       -webkit-box-shadow: #666666 0 0 6px 0px inset;
       -moz-box-shadow: #666666 0 0 6px 0px inset;
       box-shadow: #666666 0 0 6px 0px inset;
@@ -716,6 +716,26 @@ sup {
         height: 0;
         clear: both;
         visibility: hidden; }
+
+.actionsPlanning {
+  width: 80px; }
+  .actionsPlanning span {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50px; }
+    .actionsPlanning span:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .actionsPlanning span a:before {
+      right: 0; }
 
 .actionsEleves {
   width: 150px; }
@@ -1390,6 +1410,9 @@ a {
     margin-top: 1em;
     font-size: 1.272em;
     text-align: center; }
+  .planning .old, .planningSceances .old {
+    background-color: #f2f2f2 !important;
+    border: 1px solid #bfbfbf !important; }
   .planning .day, .planningSceances .day {
     width: 100%;
     margin: auto;
@@ -1402,6 +1425,7 @@ a {
     width: 150px;
     border: 1px solid #111111;
     position: relative;
+    margin-bottom: 1em;
     background-color: white; }
     .planning .day:after, .planningSceances .day:after {
       content: "";
@@ -1416,30 +1440,23 @@ a {
       float: none;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
-      box-sizing: border-box; }
+      box-sizing: border-box;
+      height: 150px;
+      width: 150px;
+      margin-bottom: 1em; }
       .planning .day + .day:after, .planningSceances .day + .day:after {
         content: "";
         display: block;
         height: 0;
         clear: both;
         visibility: hidden; }
-    .planning .day:hover .overDay, .planningSceances .day:hover .overDay, .planning .day:focus .overDay, .planningSceances .day:focus .overDay {
+    .planning .day:hover, .planningSceances .day:hover, .planning .day:focus, .planningSceances .day:focus {
+      background-color: #5097bd; }
+    .planning .day a, .planningSceances .day a {
       display: block;
-      -webkit-transition: opacity 0.3s ease, 1s;
-      -webkit-transition-delay: 0.3s, 0s;
-      -moz-transition: opacity 0.3s ease 0.3s, 1s;
-      -o-transition: opacity 0.3s ease 0.3s, 1s;
-      transition: opacity 0.3s ease 0.3s, 1s; }
-    .planning .day .overDay, .planningSceances .day .overDay {
-      display: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      text-align: center; }
-      .planning .day .overDay a, .planningSceances .day .overDay a {
-        display: inline-block; }
+      width: 100%;
+      height: 100%;
+      border: 0; }
     .planning .day .number, .planningSceances .day .number {
       font-size: 1.825em;
       margin-left: 0.5em;
@@ -1488,7 +1505,6 @@ a {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         padding: 0 5px;
-        margin: 2.5px 0;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         -ms-border-radius: 5px;
@@ -1538,12 +1554,25 @@ a {
           -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px 0;
           -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px 0;
           box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px 0; }
-      .planning .day .sceances .H1, .planningSceances .day .sceances .H1 {
-        height: 15%; }
-      .planning .day .sceances .H2, .planningSceances .day .sceances .H2 {
-        height: 25%; }
-      .planning .day .sceances .H4, .planningSceances .day .sceances .H4 {
-        height: 50%; }
+  .planning .h-1, .planningSceances .h-1 {
+    height: 13%; }
+  .planning .h-2, .planningSceances .h-2 {
+    height: 25%; }
+  .planning .h-3, .planningSceances .h-3 {
+    height: 38%; }
+  .planning .h-4, .planningSceances .h-4 {
+    height: 50%; }
+  .planning .h-5, .planningSceances .h-5 {
+    height: 63%; }
+
+.h-6 {
+  height: 75%; }
+
+.h-7 {
+  height: 88%; }
+
+.h-8 {
+  height: 100%; }
 
 .addContent {
   color: white;
@@ -3032,6 +3061,96 @@ input[type="color"] {
   margin: 0; }
 
 /*  END CONFIG */
+.calendar {
+  width: 100%;
+  margin: auto;
+  display: block;
+  float: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  .calendar:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .calendar caption {
+    font-size: 24px;
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center; }
+    .calendar caption:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+  .calendar tbody {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .calendar tbody:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+  .calendar tr {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .calendar tr:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .calendar tr td, .calendar tr th {
+      width: 13.16667%;
+      float: left;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-bottom: 1%; }
+      .calendar tr td:after, .calendar tr th:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      .calendar tr td + td, .calendar tr td + th, .calendar tr th + td, .calendar tr th + th {
+        width: 13.16667%;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+        float: left;
+        display: block;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+        .calendar tr td + td:after, .calendar tr td + th:after, .calendar tr th + td:after, .calendar tr th + th:after {
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden; }
+
 /* MEDIA QUERIES */
 /* CONFIG */
 /* typography */
@@ -3039,6 +3158,20 @@ input[type="color"] {
 /*media*/
 /*END MEDIA*/
 /*COLOR*/
+/* CONFIG */
+/* typography */
+/* END typography */
+/*media*/
+/*END MEDIA*/
+/*COLOR*/
+/*l * 100 / 1024*/
+/* CONFIG */
+/* typography */
+/* END typography */
+/*media*/
+/*END MEDIA*/
+/*COLOR*/
+/*l * 100 / 1024*/
 @media (min-width: 500px) {
   /* INDEX PAS CO */
   .logo h1 {
@@ -3298,19 +3431,14 @@ input[type="color"] {
 
   .planning h2, .planningSceances h2 {
     text-align: left; }
-  .planning .groupe, .planningSceances .groupe {
-    width: 33.33333%;
+  .planning .day, .planningSceances .day {
     float: left;
-    display: block;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    .planning .groupe:after, .planningSceances .groupe:after {
-      content: "";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
+    margin-left: 0.5%;
+    margin-right: 0.5%; }
+    .planning .day + .day, .planningSceances .day + .day {
+      float: left;
+      margin-left: 0.5%;
+      margin-right: 0.5%; }
 
   /* END INDEX CO */
   .presenceParCours .pourcentagePresenceParCours {
