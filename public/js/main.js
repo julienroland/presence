@@ -70,6 +70,7 @@
 		$('.close').on('click','a',closePopup);
 		$('.delete').on('click',closeActions);
 
+
 		$('.helper a[data-link="creer"').on('click',showCreerPopup);
 		$('.helper a[data-link="modifier"').on('click',showModifierPopup);
 		$('.helper a[data-link="supprimer"').on('click',showSupprimerPopup);
@@ -111,7 +112,12 @@
 			showActions($id,mouseX,mouseY);
 		});
 
-		$actions.on('click','a.modifier',showModifierThisPopup);
+		$actions.on('click','a.modifier',function( e ){
+			e.preventDefault();
+			$id = $(this).parent().parent().attr('data-id');
+			showModifierThisPopup( e , $id );
+
+		});
 		$actions.on('click','a.supprimer',showSupprimerThisPopup);
 		$actionsPresence.find('.present').on('click',putPresent);
 		$actionsPresence.find('.justifier').on('click',putJustifier);
@@ -187,7 +193,8 @@
 			mouseX = e.pageX; 
 			mouseY = e.pageY;
 			var $date = $(this).attr('data-date');
-			showActionsPlanning($date,mouseX,mouseY);
+			var $day = $(this).attr('data-day');
+			showActionsPlanning($date,$day,mouseX,mouseY);
 		});
 
 		$actionsPlanning.on('click','a.creer',showCreerThisPopup);
@@ -198,13 +205,48 @@
 			mouseY = e.pageY;
 			
 			var $id = $(this).attr('data-sceance');
-			showActions($id,mouseX,mouseY);
+			var uVoir = "/sceances/"+$id;
+			showActions($id,uVoir,mouseX,mouseY);
 			$actionsPlanning.hide();
+		});
+
+		$actionsPlanning.on('click','a.creer',function( e ){
+			e.preventDefault();
+
+			var $date = $(this).parent().parent().attr('data-date');
+			var $day = $(this).parent().parent().attr('data-day');
+			createSceance($date, $day);
+		});
+
+		$popupCreerThis.find('form').on('submit',function( e ){
+			e.preventDefault();
+
+			$.ajax({
+				url:"sceancesAjax/creer/" + $(this).serialize(),
+				type:"POST",
+				success: function( data ){
+					
+					var data =  JSON.parse(data);
+					hideAll();
+					for(var i =0;i < data.length;i++){
+						var date = data[i].date;
+						var $thisDay = $('.day').find("a[data-date='" + date + "']");
+						var duree = data[i].duree.substring(0, 1);
+						$('.day a[data-date="'+ date +'"').append('<ol class="sceances"><li class="h-'+duree+' oneSceance" data-cours='+data[i].coursSlug+' data-sceance='+data[i].sceanceId+'><span>'+data[i].cours+'</span></li></ol>');
+					}
+				}
+			})
 		});
 		/* END PLANNING */
 
 
 	});
+var createSceance = function( $date,$day){
+
+	$('.popupCreerThis').find('.date').attr('value',$date);
+	$('.popupCreerThis').find('.jour').attr('value',$day);
+
+};
 var displayConfig = function(){
 
 /*	displayConfigCours();
@@ -546,31 +588,46 @@ var showSupprimerThisPopup = function( e ){
 	mouseX = e.pageX; 
 	mouseY = e.pageY;
 
-	$popupSupprimerThis.css({'top':mouseY+125,'left':+130}).fadeIn();
+	$popupSupprimerThis.css({'top':mouseY,'left':0}).fadeIn();
 	overlay( $popupSupprimerThis );
 
 
 	$popupModifierThis.hide();
 	$popupCreerThis.hide();
 };
-var showModifierThisPopup = function( e ){
-	e.preventDefault();
+var showModifierThisPopup = function( e , $id ){
 	mouseX = e.pageX; 
 	mouseY = e.pageY;
 
-	$popupModifierThis.css({'left':0}).fadeIn();
+	getSceance($id);
+
+	$popupModifierThis.css({'top':mouseY,'left':0}).fadeIn();
 	overlay( $popupModifierThis );
 
 
 	$popupSupprimerThis.hide();
 	$popupCreerThis.hide();
 };
+var getSceance = function( $id ){
+	$.ajax({
+		url:"sceancesAjax/get/"+$id,
+		method:"get",
+		success: function( data ){
+			var data = JSON.parse(data);
+			console.log(data);
+			$popupModifierThis.find('#cours').find('option[value="'+data.coursSlug+'"]').attr('selected','selected');
+			$popupModifierThis.find('#jour').find('option[value="'+data.day+'"]').attr('selected','selected');
+			$popupModifierThis.find('input#debut').attr('value',data.date_start);
+			$popupModifierThis.find('input#fin').attr('value',data.date_end);
+		}
+	})
+};
 var showCreerThisPopup = function( e ){
 	e.preventDefault();
 	mouseX = e.pageX; 
 	mouseY = e.pageY;
 
-	$popupCreerThis.css({'left':0}).fadeIn();
+	$popupCreerThis.css({'top':mouseY,'left':0}).fadeIn();
 	overlay( $popupCreerThis );
 
 
@@ -599,9 +656,12 @@ var showModifierElevePopup = function( e ){
 
 	$popupSupprimerThis.hide();
 };
-var showActions = function($selector, x, y){
+var showActions = function($id, uVoir , x, y){
 
-	$actions.attr('data-id',$selector);
+	$actions.attr('data-id',$id);
+	var path = location.pathname.split('/') ;
+	path = "../"+path[2];
+	$actions.find('a.voir').attr('href',path + uVoir);
 
 	$actions.css({'top':y+25,'left':x-100}).fadeIn('fast');
 	
@@ -613,9 +673,10 @@ var showActionsEleves = function($selector, x, y){
 	$actionsEleves.css({'top':y+25,'left':x-100}).fadeIn('fast');
 	
 };
-var showActionsPlanning = function($selector, x, y){
+var showActionsPlanning = function($date,$day, x, y){
 
-	$actionsPlanning.attr('data-id',$selector);
+	$actionsPlanning.attr('data-date',$date);
+	$actionsPlanning.attr('data-day',$day);
 	$actionsPlanning.css({'top':y+25,'left':x-100}).fadeIn('fast');
 	
 };
@@ -691,7 +752,9 @@ var showEleveGroupe = function( e ){
 	}
 };
 var hideAll = function( e ){
-	e.preventDefault();
+	if(e){
+		e.preventDefault();
+	}
 	$Overlay.fadeOut();
 	$actions.fadeOut();
 	$actionsPresence.fadeOut();

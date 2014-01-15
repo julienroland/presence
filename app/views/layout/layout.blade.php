@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Présence | {{ isset($title) ? $title : 'Accueil ' }}</title>
+    <title>Présence | @yield('title','Présence | accueil')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,7 +26,7 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
     <![endif]-->
-    <h1 class="section" role="heading" aria-level="1">{{ isset($head) ? $head : 'Page d\'accueil de l\'application présence' }}</h1>
+    <h1 class="section" role="heading" aria-level="1">@yield("head","Page d'accueil de l'application présence")</h1>
     <section class="container ">
       <h1 class="section" role="heading" aria-level="1">Contenu de la page</h1>
       <section class="banner" role="banner">
@@ -47,10 +47,10 @@
             <a class="accueil" href="index.php">HEPL</a>
             <a class="menuLow" href="#menu"><span>Menu</span></a>
             <ul class="menu" id="menu">
-              <li><a href="cours.php">Mes cours</a></li>
-              <li><a href="sceances.php">Mes scéances</a></li>
-              <li><a href="eleves.php">Elèves</a></li>
-              <li><a href="groupes.php">Mes groupes</a></li>
+              <li>{{link_to('cours','Mes cours')}}</li>
+              <li>{{link_to('sceances','Mes scéances')}}</li>
+              <li>{{link_to('eleves','Mes élèves')}}</li>
+              <li>{{link_to('groupes','Mes groupe')}}</li>
               <li><a href="config.php">Configuration</a></li>
             </ul>
           </div>

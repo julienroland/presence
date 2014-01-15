@@ -1,5 +1,7 @@
 	<?php
 
+	use Carbon\Carbon;
+
 	class GererSceancesController extends \BaseController {
 
 		protected $sceance;
@@ -66,7 +68,6 @@
 	*/
 	public function store()
 	{
-		$nom =Input::get('nom');
 		$input= Input::all();
 		
 		$rules = array(
@@ -110,6 +111,73 @@
 		->withErrors($validation)
 		->with('message', 'There were validation errors.');
 	}
+	public function getSceanceAjax( $id )
+	{
+		$sceance = Sceance::getCoursOfSceance($id);
+		return json_encode($sceance);
+	}
+	public function creerAjax($data)
+	{
+		$dataExplode = explode('&',$data);
+		
+		$cours = explode('=',$dataExplode[0])[1]; 
+		$start = explode('=',$dataExplode[1])[1]; 
+		$end = explode('=',$dataExplode[2])[1]; 
+		$repetition = explode('=',$dataExplode[3])[1]; 
+		$temps = explode('=',$dataExplode[4])[1]; 
+		$date = explode('=',$dataExplode[5])[1]; 
+		$jour = explode('=',$dataExplode[6])[1]; 
+		
+		
+		$input = array(
+			'cours'=>$cours,
+			'jour'=>$jour,
+			'start'=>$start,
+			'end'=>$end,
+			'repetition'=>$repetition,
+			'temps'=>$temps,
+			'date'=>$date,
+			);
+		$rules = array(
+			'cours'=>'required',
+			'jour'=>'required',
+			'start'=>array('required','regex:/^[0-9]{1,2}\:[0-9]{2}/'),
+			'end'=>array('required','regex:/^[0-9]{1,2}\:[0-9]{2}/'),
+			'repetition'=>'required',
+			'temps'=>'required',
+			'date'=>array('required','date'),
+			);
+		$validation = Validator::make($input, $rules);
+
+		if ($validation->passes())
+		{
+			
+			$coursId = Cours::whereSlug($cours)->lists('id');
+			$dayId = Day::whereNom($jour)->lists('id');
+			$howLong = intval($temps)+1;
+			$eachWeek = intval($repetition)+1;
+			$sceances = [];
+			for($i=0;$i < $howLong ;$i+=$eachWeek){				
+
+				$sceance = new Sceance(array(
+					'cours_id'=> $coursId[0],
+					'date_start'=>$start,
+					'date_end'=>$end,
+					'day_id'=>$dayId[0],
+					'date'=>Carbon::createFromFormat('Y-m-d', $date)->addWeeks($i)->toDateString(),
+					));
+
+				$sceance->save();
+				array_push($sceances,Sceance::getCoursOfSceance($sceance->id));
+
+
+			}
+
+			return json_encode($sceances);
+		}
+
+
+	}	
 
 /**
 * Display the specified resource.

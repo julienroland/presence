@@ -1,0 +1,1109 @@
+/* CONFIG */
+/* typography */
+/* END typography */
+/*media*/
+/*END MEDIA*/
+/*COLOR*/
+/* CONFIG */
+/* typography */
+/* END typography */
+/*media*/
+/*END MEDIA*/
+/*COLOR*/
+/*l * 100 / 1024*/
+/* CONFIG */
+/* typography */
+/* END typography */
+/*media*/
+/*END MEDIA*/
+/*COLOR*/
+/*l * 100 / 1024*/
+@media (min-width: 500px) {
+  /* INDEX PAS CO */
+  .logo h1 {
+    font-size: 2.618em; }
+
+  .ligneSceances .ligne .anneeEcole {
+    display: block; }
+
+  .elevesDuCours .eleve {
+    width: 33.33333%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .elevesDuCours .eleve:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .sceancesNext {
+    width: 44.83333%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+    margin-right: 3.16667%; }
+    .sceancesNext:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .sceancesOld {
+    width: 44.83333%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: 3.16667%; }
+    .sceancesOld:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .banner {
+    min-height: 180px; }
+
+  .intro {
+    display: block;
+    margin: 1em auto; }
+
+  .connexion {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 0px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 0 10px 0px;
+    padding: 1em; }
+    .connexion input[type='submit'] {
+      width: 49%;
+      margin-left: 0.5%;
+      float: right;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .connexion input[type='submit']:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+    .connexion .problemeCompte {
+      width: 49%;
+      float: left;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-bottom: 1%;
+      margin-top: 0.5em;
+      text-align: left; }
+      .connexion .problemeCompte:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      .connexion .problemeCompte a {
+        display: inline-block;
+        width: auto; }
+      .connexion .problemeCompte span {
+        display: none; }
+
+  .presenceTotalCoursAnnee {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .presenceTotalCoursAnnee:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .presenceTotalCoursAnnee .pourcentagePresenceTotalCoursAnnee li {
+      width: 49%;
+      float: left;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-bottom: 1%; }
+      .presenceTotalCoursAnnee .pourcentagePresenceTotalCoursAnnee li:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      .presenceTotalCoursAnnee .pourcentagePresenceTotalCoursAnnee li + li {
+        width: 49%;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+        float: left;
+        display: block;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+        .presenceTotalCoursAnnee .pourcentagePresenceTotalCoursAnnee li + li:after {
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden; }
+
+  /* END INDEX PAS CO */
+  /* INDEX CO */
+  .news {
+    padding: 3em 0;
+    background-color: white;
+    width: 100%; }
+    .news:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .calendrier:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+  .sceanceEnCours, .sceances {
+    width: 49%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .sceanceEnCours:after, .sceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .sceanceEnCours:after, .sceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .sceanceEnCours h2, .sceances h2 {
+      text-align: left; }
+    .sceanceEnCours .sceance, .sceances .sceance {
+      margin: auto; }
+
+  .mesCours {
+    width: 49%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .mesCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .mesCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .mesCours .cours {
+      margin: auto;
+      width: 100%;
+      margin: auto;
+      display: block;
+      float: none;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-bottom: 0.5em; }
+      .mesCours .cours:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+    .mesCours h2 {
+      text-align: left; }
+
+  .gererMesCours {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .gererMesCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .planning h2 {
+    text-align: left; }
+  .planning .day {
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%; }
+    .planning .day + .day {
+      float: left;
+      margin-left: 0.5%;
+      margin-right: 0.5%; }
+
+  /* END INDEX CO */
+  .presenceParCours .pourcentagePresenceParCours {
+    width: 33.33333%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .presenceParCours .pourcentagePresenceParCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .sceances {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .sceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .gererMaSceance {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 1em; }
+    .gererMaSceance:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; } }
+@media (min-width: 600px) {
+  .gererMesCours .cours {
+    width: 49%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .gererMesCours .cours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .gererMesCours .cours + .cours {
+      width: 49%;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .gererMesCours .cours + .cours:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; } }
+@media (min-width: 700px) {
+  .presenceParCours .pourcentagePresenceParCours {
+    width: 25%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .presenceParCours .pourcentagePresenceParCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .presenceParCours .pourcentagePresenceParCours .nom {
+      margin-bottom: 1em; }
+
+  .config {
+    width: 49%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .config:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .config + .config {
+      width: 49%;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .config + .config:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+
+  .elevesDuCours .eleve {
+    width: 25%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .elevesDuCours .eleve:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .presenceTotalCours:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .presenceTotalCours .pourcentagePresenceTotalCours {
+    width: 32.33333%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    font-size: 120px; }
+    .presenceTotalCours .pourcentagePresenceTotalCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+  .presenceTotalCours .graphPresenceTotalCours {
+    width: 65.66667%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .presenceTotalCours .graphPresenceTotalCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; } }
+@media (min-width: 800px) {
+  .banner {
+    min-height: 250px;
+    position: relative; }
+
+  .listEleves {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .listEleves:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .presenceTotalCoursAnnee {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .presenceTotalCoursAnnee:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .presenceCours {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .presenceCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .actionsSmall {
+    display: none; }
+
+  .sceancesNext, .sceancesOld {
+    width: 36.5%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .sceancesNext:after, .sceancesOld:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .quote {
+    width: auto;
+    display: inline-block;
+    font-size: 18px;
+    text-align: center;
+    padding-left: 70px;
+    padding-right: 70px; }
+    .quote:before {
+      display: block; }
+    .quote:after {
+      display: block; }
+
+  .container {
+    margin-top: 0; }
+
+  .nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    top: auto;
+    -webkit-box-shadow: transparent 0 0 0 0;
+    -moz-box-shadow: transparent 0 0 0 0;
+    box-shadow: transparent 0 0 0 0;
+    background-color: rgba(80, 151, 189, 0.4); }
+    .nav .menuLow {
+      display: none; }
+    .nav .menu {
+      width: 82.33333%;
+      margin-left: 0.5%;
+      float: right;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: relative;
+      top: 0;
+      height: 50px;
+      padding: 0;
+      max-width: 800px; }
+      .nav .menu:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      .nav .menu li {
+        display: inline-block;
+        width: 20%;
+        float: left;
+        display: block;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 0.8em;
+        height: 100%;
+        margin-bottom: 0;
+        text-align: center;
+        line-height: 50px; }
+        .nav .menu li:after {
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden; }
+        .nav .menu li a {
+          height: 100%;
+          box-sizing: border-box;
+          padding: 0 0.5em;
+          color: white; }
+          .nav .menu li a:hover:after, .nav .menu li a:focus:after {
+            content: none; }
+        .nav .menu li + li {
+          width: 20%;
+          float: left;
+          display: block;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          border-left: 1px solid rgba(255, 255, 255, 0.5); }
+          .nav .menu li + li:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden; }
+
+  .planning, .planningSceances {
+    width: 99%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .planning:after, .planningSceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .planning .groupe, .planningSceances .groupe {
+      width: 25%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .planning .groupe:after, .planningSceances .groupe:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+
+  .gererMesCours {
+    width: 75%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+    max-width: 900px;
+    min-height: 400px; }
+    .gererMesCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .helper {
+    width: 25%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 300px;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding-top: 3em;
+    background-color: #e5e5e5;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.8; }
+    .helper:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .helper a {
+      color: #111111; }
+    .helper .active {
+      background-color: #5097bd;
+      padding: 0.5em;
+      margin-bottom: 0.5em; }
+      .helper .active a {
+        color: white;
+        font-weight: bold;
+        border: 0; }
+        .helper .active a:hover, .helper .active a:focus {
+          border: 0; }
+
+  .elevesDuCours {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .elevesDuCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .sceances {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .sceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .planningSceances {
+    padding: 1em;
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .planningSceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .gererMaSceance {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+    padding: 1em; }
+    .gererMaSceance:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .presenceTotalCours {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .presenceTotalCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .presenceParCours {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .presenceParCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; } }
+@media (min-width: 900px) {
+  .logo h1 .nom {
+    display: inline-block; }
+  .logo h1 .prenom {
+    color: white; }
+
+  .config {
+    width: 32.33333%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .config:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .config + .config {
+      width: 32.33333%;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .config + .config:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+
+  .main {
+    min-height: 400px; }
+    .main .left {
+      width: 75%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .main .left:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+    .main .right {
+      width: 25%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .main .right:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+
+  .sceanceEnCours {
+    width: 24%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .sceanceEnCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .mesCours {
+    width: 74%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    .mesCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .mesCours .cours {
+      width: 49%;
+      margin-left: 0.5%;
+      margin-right: 0.5%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .mesCours .cours:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      .mesCours .cours + .cours {
+        width: 49%;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+        float: left;
+        display: block;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; }
+        .mesCours .cours + .cours:after {
+          content: "";
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden; }
+
+  .gererMesCours, .gererMonCours {
+    width: 75%;
+    float: left;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0 0 0 0; }
+    .gererMesCours:after, .gererMonCours:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .addContent {
+    width: 100%;
+    margin: auto;
+    display: block;
+    float: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 300px;
+    min-height: 100%;
+    margin-left: 0;
+    height: auto !important; }
+    .addContent:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .addContent .creation li {
+      margin-bottom: 0.5em; }
+      .addContent .creation li a {
+        text-decoration: none;
+        font-weight: bold;
+        display: block; }
+        .addContent .creation li a:hover, .addContent .creation li a:focus {
+          text-decoration: underline; }
+    .addContent .wrapper {
+      margin-bottom: 1em; }
+
+  .planning, .planningSceances {
+    width: 99%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .planning:after, .planningSceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .planning .groupe, .planningSceances .groupe {
+      width: 20%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .planning .groupe:after, .planningSceances .groupe:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+
+  .gererMonCours .cours {
+    float: none;
+    margin: 1em auto; }
+
+  .planningSceances {
+    padding: 1em;
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .planningSceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+
+  .gererMaSceance {
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+    padding: 1em; }
+    .gererMaSceance:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; } }
+@media (min-width: 1200px) {
+  .planning, .planningSceances {
+    width: 99%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .planning:after, .planningSceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .planning .groupe, .planningSceances .groupe {
+      width: 20%;
+      float: left;
+      display: block;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      .planning .groupe:after, .planningSceances .groupe:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+
+  .planningSceances {
+    padding: 1em;
+    width: 74%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 1%; }
+    .planningSceances:after {
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; } }

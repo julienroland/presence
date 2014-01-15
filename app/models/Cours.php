@@ -37,6 +37,6 @@ class Cours extends Eloquent {
 		return $this->belongsToMany('Option','coursHasOptions','cours_id','options_id');
 	}
 	public function sceance(){
-		return $this->hasMany('Sceance','cours_id');
+		return $this->hasMany('Sceance');
 	}
 }

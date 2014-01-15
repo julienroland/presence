@@ -934,7 +934,7 @@ a, ul {
   display:none;
   @include abs();
   top:auto;
-  bottom:0;
+  bottom:auto;
   z-index:200;
   padding:1em;
   @include box-sizing(border-box);

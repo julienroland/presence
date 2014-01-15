@@ -1695,7 +1695,7 @@ a {
   bottom: 0;
   margin: auto;
   top: auto;
-  bottom: 0;
+  bottom: auto;
   z-index: 200;
   padding: 1em;
   -webkit-box-sizing: border-box;
