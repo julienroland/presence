@@ -10,7 +10,7 @@ class Groupe extends Eloquent {
 		'save_to'    => 'slug',
 		);
 	public function eleve(){
-		return $this->hasMany('Eleve','groupe_id');
+		return $this->belongsToMany('Eleve','elevesHasGroupe','groupe_id','eleves_id');
 	}
 
 	public function cours(){

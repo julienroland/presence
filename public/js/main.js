@@ -228,7 +228,7 @@
 				url:"sceancesAjax/creer/" + $(this).serialize(),
 				type:"POST",
 				success: function( data ){
-					
+					console.log(data);
 					var data =  JSON.parse(data);
 					hideAll();
 					for(var i =0;i < data.length;i++){

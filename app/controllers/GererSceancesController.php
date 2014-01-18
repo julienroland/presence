@@ -17,8 +17,6 @@
 	 */
 	public function index()
 	{
-
-
 		$id = Session::get('user')['id'];
 		$prof= Prof::find($id);
 		
@@ -153,22 +151,27 @@
 		if ($validation->passes())
 		{
 			
-			$coursId = Cours::whereSlug($cours)->lists('id');
-			$dayId = Day::whereNom($jour)->lists('id');
+			$thisCours = Cours::whereSlug($cours)->first();
+
+			$day = Day::whereNom($jour)->first();
+
 			$howLong = intval($temps)+1;
 			$eachWeek = intval($repetition)+1;
 			$sceances = [];
+
 			for($i=0;$i < $howLong ;$i+=$eachWeek){				
 
 				$sceance = new Sceance(array(
-					'cours_id'=> $coursId[0],
+					'cours_id'=> $thisCours->id,
 					'date_start'=>$start,
 					'date_end'=>$end,
-					'day_id'=>$dayId[0],
+					'day_id'=>$day->id,
 					'date'=>Carbon::createFromFormat('Y-m-d', $date)->addWeeks($i)->toDateString(),
 					));
 
 				$sceance->save();
+				$eleves = Sceance::getSceanceEleves($sceance->id);
+				dd($eleves); //////////////// attaché les eleves et tous
 				array_push($sceances,Sceance::getCoursOfSceance($sceance->id));
 
 
@@ -176,8 +179,6 @@
 
 			return json_encode($sceances);
 		}
-
-
 	}
 	public function modifierAjax($data)
 	{

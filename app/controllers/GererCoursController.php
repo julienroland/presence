@@ -39,7 +39,7 @@ class GererCoursController extends \BaseController {
 		$i = 0;
 		foreach($cours as $cour){
 
-			$percentByCours[$i] =['nom'=>$cour->nom,'slug'=>$cour->slug,'percent'=>round((Helpers::toPercent(Prof::getPresence($cour->id),Prof::getpresent($cour->id)) / $totalCours),2)];
+			$percentByCours[$i] =['nom'=>$cour->nom,'slug'=>$cour->slug,'percent'=>round((Helpers::toPercent(Cours::getPresence($cour->id),Cours::getpresent($cour->id)) / $totalCours),2)];
 
 			$i++;
 		}

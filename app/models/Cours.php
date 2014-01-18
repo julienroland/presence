@@ -39,7 +39,7 @@ class Cours extends Eloquent {
 	public function sceance(){
 		return $this->hasMany('Sceance');
 	}
-		public static function getPresent($cours_id){
+	public static function getPresent($cours_id){
 		return DB::table('cours')
 		->join('sceances','cours.id','=','sceances.cours_id')
 		->join('sceancesHasEleves','sceances.id','=','sceancesHasEleves.sceances_id')

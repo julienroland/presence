@@ -9,7 +9,7 @@
 
 	<div class="breadcrumbs">
 		<div class="wrapper">
-			<a href="indexCo.php">Accueil</a>&nbsp;/&nbsp;<span>Mes cours</span>
+			{{link_to('index','Accueil')}}&nbsp;/&nbsp;<span>Mes cours</span>
 		</div>
 	</div>
 	<div class="wrapper actionsSmall">

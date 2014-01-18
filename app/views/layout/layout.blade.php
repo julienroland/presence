@@ -44,7 +44,7 @@
           <div class="wrapper">
             <h1 class="section">Navigation principal du site</h1>
             <a href="#main" class="reader">Passer au contenu directement</a>
-            <a class="accueil" href="index.php">HEPL</a>
+            {{link_to('index','HEPL',array('class'=>'accueil'))}}
             <a class="menuLow" href="#menu"><span>Menu</span></a>
             <ul class="menu" id="menu">
               <li>{{link_to('cours','Mes cours')}}</li>

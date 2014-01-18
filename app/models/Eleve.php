@@ -38,7 +38,7 @@ class Eleve extends Eloquent {
 	}
 	public function groupe(){
 
-		return $this->belongsTo('Groupe','groupe_id');
+		return $this->belongsToMany('Groupe','elevesHasGroupe','eleves_id','groupe_id');
 
 	}
 	public function anneeLevel(){
