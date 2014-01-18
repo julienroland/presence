@@ -117,7 +117,7 @@
         {{Form::open(array('method'=>'post'))}}
 
         {{Form::label('cours','Pour quel cours')}}
-        {{Form::select('cours',$listCours)}}
+        {{Form::select('cours',$listCours,'')}}
 
         {{Form::label('date','Pour quel date')}}
         {{Form::text('date','',array('placeholder'=>'00-00-0000'))}}
@@ -131,7 +131,19 @@
         {{Form::hidden('sceance','',array('class'=>'sceance'))}}
 
         {{Form::submit('Modifier',array('class'=>'btn'))}}
-    </form>
+        {{Form::close()}}
+
+</div>
+<div class="popupSupprimerThis">
+    <div class="close"><a href="" title="Fermer la fenêtre"><span>Fermer</span></a></div>
+    <h3 aria-level="3" role="heading" class="indexTitle">Supprimer ce cours: </h3>
+    <hr/>
+    {{Form::open(array('method'=>'post'))}}
+    {{Form::hidden('sceance','',array('class'=>'sceance'))}}
+    {{Form::submit('Supprimer',array('class'=>'btn'))}}
+
+    {{Form::close()}}
+  
 </div>
 <div class="popupSupprimer">
     <div class="close"><a href="" title="Fermer la fenêtre"><span>Fermer</span></a></div>

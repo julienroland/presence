@@ -118,7 +118,11 @@
 			showModifierThisPopup( e , $id );
 
 		});
-		$actions.on('click','a.supprimer',showSupprimerThisPopup);
+		$actions.on('click','a.supprimer',function( e ){
+			e.preventDefault();
+			$id = $(this).parent().parent().attr('data-id');
+			showSupprimerThisPopup(e , $id);
+		});
 		$actionsPresence.find('.present').on('click',putPresent);
 		$actionsPresence.find('.justifier').on('click',putJustifier);
 		$actionsPresence.find('.absent').on('click',putAbsent);
@@ -220,7 +224,6 @@
 
 		$popupCreerThis.find('form').on('submit',function( e ){
 			e.preventDefault();
-
 			$.ajax({
 				url:"sceancesAjax/creer/" + $(this).serialize(),
 				type:"POST",
@@ -233,6 +236,16 @@
 						var $thisDay = $('.day').find("a[data-date='" + date + "']");
 						var duree = data[i].duree.substring(0, 1);
 						$('.day a[data-date="'+ date +'"').append('<ol class="sceances"><li class="h-'+duree+' oneSceance" data-cours='+data[i].coursSlug+' data-sceance='+data[i].sceanceId+'><span>'+data[i].cours+'</span></li></ol>');
+						$('.day .oneSceance').on('click',function(e){
+							e.preventDefault();
+							mouseX = e.pageX; 
+							mouseY = e.pageY;
+
+							var $id = $(this).attr('data-sceance');
+							var uVoir = "/sceances/"+$id;
+							showActions($id,uVoir,mouseX,mouseY);
+							$actionsPlanning.hide();
+						});
 					}
 				}
 			})
@@ -252,6 +265,30 @@
 					var duree = data.duree.substring(0, 1);
 					$('.oneSceance[data-sceance="'+ data.sceanceId +'"').hide();
 					$('.day a[data-date="'+ date +'"').append('<ol class="sceances"><li class="h-'+duree+' oneSceance" data-cours='+data.coursSlug+' data-sceance='+data.sceanceId+'><span>'+data.cours+'</span></li></ol>');
+					$('.day .oneSceance').on('click',function(e){
+						e.preventDefault();
+						mouseX = e.pageX; 
+						mouseY = e.pageY;
+
+						var $id = $(this).attr('data-sceance');
+						var uVoir = "/sceances/"+$id;
+						showActions($id,uVoir,mouseX,mouseY);
+						$actionsPlanning.hide();
+					});
+				}
+			})
+		});	
+		$popupSupprimerThis.find('form').on('submit',function( e ){
+			e.preventDefault();
+			$.ajax({
+				url:"sceancesAjax/supprimer/" + $(this).serialize(),
+				type:"POST",
+				success: function( data ){
+					var data = JSON.parse(data);
+					if(data !=="" || data !== false){
+						$('.oneSceance[data-sceance="'+data+'"').hide();
+						hideAll();
+					}
 					
 				}
 			})
@@ -602,10 +639,12 @@ var ajaxChangePresence = function( $eleve, $sceance , $presence){
 	});*/
 return true;
 };
-var showSupprimerThisPopup = function( e ){
+var showSupprimerThisPopup = function( e , $id ){
 	e.preventDefault();
 	mouseX = e.pageX; 
 	mouseY = e.pageY;
+
+	getSceance($popupSupprimerThis , $id);
 
 	$popupSupprimerThis.css({'top':mouseY,'left':0}).fadeIn();
 	overlay( $popupSupprimerThis );
@@ -618,7 +657,7 @@ var showModifierThisPopup = function( e , $id ){
 	mouseX = e.pageX; 
 	mouseY = e.pageY;
 
-	getSceance($id);
+	getSceance($popupModifierThis , $id);
 
 	$popupModifierThis.css({'top':mouseY,'left':0}).fadeIn();
 	overlay( $popupModifierThis );
@@ -633,7 +672,7 @@ var euDateForm = function( sDate ){
 	return sEuDate[2]+"-"+sEuDate[1]+"-"+sEuDate[0];
 
 };
-var getSceance = function( $id ){
+var getSceance = function($selector, $id ){
 	$.ajax({
 		url:"sceancesAjax/get/"+$id,
 		method:"get",
@@ -642,11 +681,11 @@ var getSceance = function( $id ){
 
 			var sDate = euDateForm(data.date);
 
-			$popupModifierThis.find('#cours').find('option[value="'+data.coursSlug+'"]').attr('selected','selected');
-			$popupModifierThis.find('#date').attr('value',sDate);
-			$popupModifierThis.find('input#debut').attr('value',data.date_start);
-			$popupModifierThis.find('input#fin').attr('value',data.date_end);
-			$popupModifierThis.find('input.sceance').attr('value',data.sceanceId);
+			$selector.find('#cours').find('option[value="'+data.coursSlug+'"]').attr('selected','selected');
+			$selector.find('#date').attr('value',sDate);
+			$selector.find('input#debut').attr('value',data.date_start);
+			$selector.find('input#fin').attr('value',data.date_end);
+			$selector.find('input.sceance').attr('value',data.sceanceId);
 		}
 	})
 };

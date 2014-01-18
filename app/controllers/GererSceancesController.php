@@ -118,15 +118,16 @@
 	}
 	public function creerAjax($data)
 	{
+
 		$dataExplode = explode('&',$data);
 		
-		$cours = explode('=',$dataExplode[0])[1]; 
-		$start = explode('=',$dataExplode[1])[1]; 
-		$end = explode('=',$dataExplode[2])[1]; 
-		$repetition = explode('=',$dataExplode[3])[1]; 
-		$temps = explode('=',$dataExplode[4])[1]; 
-		$date = explode('=',$dataExplode[5])[1]; 
-		$jour = explode('=',$dataExplode[6])[1]; 
+		$cours = explode('=',$dataExplode[1])[1]; 
+		$start = explode('=',$dataExplode[2])[1]; 
+		$end = explode('=',$dataExplode[3])[1]; 
+		$repetition = explode('=',$dataExplode[4])[1]; 
+		$temps = explode('=',$dataExplode[5])[1]; 
+		$date = explode('=',$dataExplode[6])[1]; 
+		$jour = explode('=',$dataExplode[7])[1]; 
 		
 		
 		$input = array(
@@ -225,6 +226,20 @@
 			return json_encode($sceanceAndCours);
 		}
 
+
+	}	
+	public function supprimerAjax($data)
+	{
+		$dataExplode = explode('&',$data);
+		$id = explode('=',$dataExplode[1])[1];
+
+		$sceance = Sceance::find($id)->delete();
+		if($sceance){
+			return json_encode($id);
+		}
+		else{
+			return false;
+		}
 
 	}	
 

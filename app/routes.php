@@ -49,6 +49,7 @@ Route::group(array('before'=>'auth','before'=>'connected'),function(){
 
 	Route::post('sceancesAjax/creer/{data}', array('as'=>'creerSceancesAjax','uses'=>'GererSceancesController@creerAjax'));
 	Route::post('sceancesAjax/modifier/{data}', array('as'=>'modifierSceancesAjax','uses'=>'GererSceancesController@modifierAjax'));
+	Route::post('sceancesAjax/supprimer/{data}', array('as'=>'supprimerSceancesAjax','uses'=>'GererSceancesController@SupprimerAjax'));
 	Route::get('sceancesAjax/get/{id}', array('as'=>'getSceanceAjax','uses'=>'GererSceancesController@getSceanceAjax'));
 	/* GERER MES ELEVES */
 
