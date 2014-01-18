@@ -17,6 +17,7 @@
             <section class="sceanceEnCours">
                 <h2 role="heading" aria-level="2" class="titleIndex">Scéance en cours</h2>
                 <hr/>
+                @if(!is_null($sceance))
                 <div class="sceance">
                     <div class="titre">
                         <h3 role="heading" aria-level="3">{{$sceance->coursNom}}</h3>
@@ -31,6 +32,9 @@
                         {{link_to_route('voirSceances','Voir',$sceance->sceancesId,array('class'=>'btn','title'=>'Voir la scéance'))}}
                     </div>
                 </div>
+                @else
+                <p class="informations">Aucune séance en cours.</p>
+                @endif
 
             </section>
 

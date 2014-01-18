@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class HomeController extends BaseController {
 
 	public function index()
@@ -15,14 +17,17 @@ class HomeController extends BaseController {
 		$cours = $prof->cours;
 
 		//sceance
-		foreach($sceances as $sceance){ 
-			if($sceance->date === $date){
+		foreach($sceances as $sceance){
+			$date = Helpers::createCarbonDate($sceance->date); 
+			
+			if($date->isToday()){
+
 				$sceance = $sceance;
 				$presence = Prof::countPresence($sceance->sceancesId);
-
 			}
 			else
 			{
+				$sceance = NULL;
 				$presence = NULL;
 			}
 		}
