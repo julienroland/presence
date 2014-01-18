@@ -16,9 +16,12 @@ class GererCoursController extends \BaseController {
 
 	public function index()
 	{
-
-		$id = Session::get('user')['id'];
+		$user = unserialize(Session::get('user'));
+		$id = $user['id'];
 		$prof= Prof::find($id);
+
+		$title="Cours";
+		$head="Page de vos cours de l'application présence";
 		
 		$paramCours = (object)array(
 			'groupe'=>Groupe::get()->toArray(),
@@ -29,8 +32,24 @@ class GererCoursController extends \BaseController {
 		Session::put('paramCours',$paramCours);
 
 		$cours = $prof->cours()->with('option','groupe')->distinct()->get();
+		
+		/* PRESENCE PAR COURS */
+		$percentByCours = [];
+		$totalCours = Prof::countCours($id);
+		$i = 0;
+		foreach($cours as $cour){
 
-		return View::make('gererMesCours.index')->with(compact('cours'));
+			$percentByCours[$i] =['nom'=>$cour->nom,'slug'=>$cour->slug,'percent'=>round((Helpers::toPercent(Prof::getPresence($cour->id),Prof::getpresent($cour->id)) / $totalCours),2)];
+
+			$i++;
+		}
+		
+		/* Pourcentage total tous les cours */
+		$presenceTotal = Prof::getTotalPresence($id);
+		$presentTotal = Prof::getTotalPresent($id); 
+		$percentTotal = Helpers::toPercent($presentTotal,$presenceTotal).'%';
+
+		return View::make('gererMesCours.index')->with(compact('cours','title','head','percentTotal','percentByCours'));
 	}
 
 	/**
@@ -127,8 +146,8 @@ class GererCoursController extends \BaseController {
 	{
 
 		$cours = $this->cours->whereSlug($slug)
-			->with('sceance.cours.groupe','option','groupe','eleve.groupe')
-			->first();
+		->with('sceance.cours.groupe','option','groupe','eleve.groupe')
+		->first();
 		
 		return View::make('gererMesCours.voir', compact('cours'));
 	}

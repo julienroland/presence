@@ -72,6 +72,30 @@ class Prof extends Eloquent implements UserInterface, RemindableInterface {
 			'eleves.email as eleveEmail',
 			]);
 	}
+	public static function getCours($id){
+		return DB::table('profs')
+		->join('coursHasProfs','profs.id','=','CoursHasProfs.profs_id')
+		->join('cours','coursHasProfs.cours_id','=','cours.id')
+		->join('coursHasGroupe','cours.id','=','coursHasGroupe.cours_id')
+		->join('groupe','coursHasGroupe.groupe_id','=','groupe.id')
+		->join('anneeLevel','cours.anneeLevel_id','=','anneeLevel.id')
+		->join('coursHasOptions','cours.id','=','coursHasOptions.cours_id')
+		->join('options','coursHasOptions.options_id','=','options.id')							
+		->where('profs.id','=',$id)
+		->distinct()
+		->get([
+			'options.id as optionId',
+			'options.nom as option',
+			'cours.id as coursId',
+			'cours.slug as coursSlug',
+			'cours.nom as coursNom',
+			'cours.duree as duree',
+			'groupe.nom as groupe',
+			'groupe.id as groupeId',
+			'anneeLevel_id',
+			'anneeLevel.nom as anneeLevel',
+			]);
+	}
 	public static function getSceanceAndCours($id){
 		return DB::table('profs')
 		->join('coursHasProfs','profs.id','=','CoursHasProfs.profs_id')
@@ -105,13 +129,36 @@ class Prof extends Eloquent implements UserInterface, RemindableInterface {
 			'day.nom as dayNom',
 			]);
 	}
-	public static function countPresence($sceance_id){
-		return DB::table('sceances')
-		->join('sceancesHasEleves','sceances.id','=','sceancesHasEleves.sceances_id')
-		->where('sceances.id','=',$sceance_id)
-		->where('sceancesHasEleves.presence_id','=','3')
-		->count('sceancesHasEleves.presence_id');
+
+	public static function countCours($id){
+		return DB::table('profs')
+		->join('coursHasProfs','profs.id','=','CoursHasProfs.profs_id')
+		->join('cours','coursHasProfs.cours_id','=','cours.id')
+		->where('profs.id','=',$id)
+		->count('cours.id');
 	}
+	
+	public static function getTotalPresent($id){
+		return DB::table('profs')
+		->join('coursHasProfs','profs.id','=','CoursHasProfs.profs_id')
+		->join('cours','coursHasProfs.cours_id','=','cours.id')
+		->join('sceances','cours.id','=','sceances.cours_id')
+		->join('sceancesHasEleves','sceances.id','=','sceancesHasEleves.sceances_id')
+		->where('profs.id','=',$id)
+		->where('sceancesHasEleves.presence_id','=','3')
+		->count('sceancesHasEleves.sceances_id');
+	}	
+	public static function getTotalPresence($id){
+		return DB::table('profs')
+		->join('coursHasProfs','profs.id','=','CoursHasProfs.profs_id')
+		->join('cours','coursHasProfs.cours_id','=','cours.id')
+		->join('sceances','cours.id','=','sceances.cours_id')
+		->join('sceancesHasEleves','sceances.id','=','sceancesHasEleves.sceances_id')
+		->where('profs.id','=',$id)
+		->count('sceancesHasEleves.sceances_id');
+	}	
+
+
 	public static function getEleves($id){
 		return DB::table('profs')
 		->join('coursHasProfs','profs.id','=','CoursHasProfs.profs_id')
@@ -138,6 +185,7 @@ class Prof extends Eloquent implements UserInterface, RemindableInterface {
 
 			]);
 	}
+	
 	/**
 	 * Get the unique identifier for the user.
 	 *

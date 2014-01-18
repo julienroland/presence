@@ -19,9 +19,6 @@ class BaseController extends Controller {
 
 
 
-	public static function toPercent( $value , $on )
-	{
-		return ($value / $on ) * 100 .'%';
-	}
+	
 
 }

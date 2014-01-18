@@ -10,6 +10,17 @@ class Helpers {
 
 		return $dateExplode[2].'/'. $dateExplode[1].'/'.$dateExplode[0];
 	}
+	public static function toPercent( $value , $on )
+	{
+		if($on != 0){
+			return ($value / $on ) * 100;
+		}
+		else{
+
+			return NULL;
+		}
+		
+	}
 	public static function dateNaForm( $date ){
 
 		$dateExplode = explode('-',$date);

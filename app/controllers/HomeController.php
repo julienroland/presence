@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 			if($date->isToday()){
 
 				$sceance = $sceance;
-				$presence = Prof::countPresence($sceance->sceancesId);
+				$presence = Sceance::countPresence($sceance->sceancesId);
 			}
 			else
 			{
