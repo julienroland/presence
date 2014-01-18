@@ -17,12 +17,6 @@ class BaseController extends Controller {
 		
 	}
 
-	public static function dateEu( $date ){
-
-		$dateExplode = explode('-',$date);
-
-		return $dateExplode[2].'/'. $dateExplode[1].'/'.$dateExplode[0];
-	}
 
 
 	public static function toPercent( $value , $on )

@@ -83,7 +83,7 @@
         <div class="close"><a href="" title="Fermer la fenêtre"><span>Fermer</span></a></div>
         <h3 aria-level="3" role="heading" class="indexTitle">Crée une nouvelle scéance</h3>
         <hr/>
-        {{Form::open(array('method'=>'get'))}}
+        {{Form::open(array('method'=>'post'))}}
 
         {{Form::label('cours','Quel cours')}}
         {{Form::select('cours',$listCours,'')}}
@@ -114,13 +114,13 @@
         <div class="close"><a href="" title="Fermer la fenêtre"><span>Fermer</span></a></div>
         <h3 aria-level="3" role="heading" class="indexTitle">Modifier une scéance</h3>
         <hr/>
-        {{Form::open(array('method'=>'get'))}}
+        {{Form::open(array('method'=>'post'))}}
 
         {{Form::label('cours','Pour quel cours')}}
         {{Form::select('cours',$listCours)}}
 
-        {{Form::label('jour','Pour quel jour')}}
-        {{Form::select('jour',$listDay)}}
+        {{Form::label('date','Pour quel date')}}
+        {{Form::text('date','',array('placeholder'=>'00-00-0000'))}}
 
         {{Form::label('debut','Heure du début')}}
         {{Form::text('debut','',array('placeholder'=>'Format: 5:32'))}}
@@ -129,6 +129,7 @@
         {{Form::text('fin','',array('placeholder'=>'Format: 16:30'))}}
 
         {{Form::hidden('sceance','',array('class'=>'sceance'))}}
+
         {{Form::submit('Modifier',array('class'=>'btn'))}}
     </form>
 </div>
@@ -162,4 +163,7 @@
 </section>
 
 </section>
+
+
+
 @stop

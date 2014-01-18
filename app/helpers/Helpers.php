@@ -1,6 +1,55 @@
 <?php
+
+use Carbon\Carbon;
+
 class Helpers {
 
+	public static function dateEu( $date ){
+
+		$dateExplode = explode('-',$date);
+
+		return $dateExplode[2].'/'. $dateExplode[1].'/'.$dateExplode[0];
+	}
+	public static function dateNaForm( $date ){
+
+		$dateExplode = explode('-',$date);
+
+		return $dateExplode[2].'-'. $dateExplode[1].'-'.$dateExplode[0];
+	}
+	public static function createCarbonDate( $date ){
+
+		$dateExplode = explode('-',$date);
+
+		return Carbon::createFromDate($dateExplode[0], $dateExplode[1], $dateExplode[2]);
+		
+	}
+	public static function humanDay( $date ){
+
+		switch ($date) {
+			case 0:
+			return "Dimanche";
+			break;
+			case 1:
+			return "Lundi";
+			break;
+			case 2:
+			return "Mardi";
+			break;
+			case 3:
+			return "Mercredi";
+			break;
+			case 4:
+			return "Jeudi";
+			break;
+			case 5:
+			return "Vendredi";
+			break;
+			case 6:
+			return "Samedi";
+			break;
+
+		}
+	}
 	public static function build_calendar($month,$year,$dateArray) {
 		$user = unserialize(Session::get('user'));
 		$sceances = Prof::getSceanceAndCours($user->id);
@@ -115,8 +164,8 @@ class Helpers {
 			$date = "$year-$month-$currentDayRel";
 
 
-				
-			
+
+
 
 			if($currentDayRel == $today_date ){  
 				$calendar .= "<td class='day today' ><a data-date='$date' data-day='$day' href=''><span class='number'>$currentDay</span>";
@@ -130,7 +179,7 @@ class Helpers {
 				$calendar.=$dateArray[mktime(0, 0, 0, $month, $currentDay, $year)];
 			}
 			foreach($sceances as $sceance){
-				
+
 				if($sceance->date === $date){
 					$duree = "h-".substr($sceance->duree, 0, 1);
 

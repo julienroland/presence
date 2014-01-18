@@ -101,7 +101,6 @@ class Prof extends Eloquent implements UserInterface, RemindableInterface {
 			'sceances.date_start as debut',
 			'sceances.date_end as fin',
 			'sceances.date as date',
-			'sceances.nb_semaine as semaine',
 			'day.id as dayId',
 			'day.nom as dayNom',
 			]);

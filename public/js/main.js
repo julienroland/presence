@@ -236,6 +236,25 @@
 					}
 				}
 			})
+		});	
+		$popupModifierThis.find('form').on('submit',function( e ){
+			e.preventDefault();
+			$.ajax({
+				url:"sceancesAjax/modifier/" + $(this).serialize(),
+				type:"POST",
+				success: function( data ){
+					
+					var data =  JSON.parse(data);
+					hideAll();
+					
+					var date = data.date;
+					var $thisDay = $('.day').find("a[data-date='" + date + "']");
+					var duree = data.duree.substring(0, 1);
+					$('.oneSceance[data-sceance="'+ data.sceanceId +'"').hide();
+					$('.day a[data-date="'+ date +'"').append('<ol class="sceances"><li class="h-'+duree+' oneSceance" data-cours='+data.coursSlug+' data-sceance='+data.sceanceId+'><span>'+data.cours+'</span></li></ol>');
+					
+				}
+			})
 		});
 		/* END PLANNING */
 
@@ -608,17 +627,26 @@ var showModifierThisPopup = function( e , $id ){
 	$popupSupprimerThis.hide();
 	$popupCreerThis.hide();
 };
+var euDateForm = function( sDate ){
+
+	var sEuDate = sDate.split('-');
+	return sEuDate[2]+"-"+sEuDate[1]+"-"+sEuDate[0];
+
+};
 var getSceance = function( $id ){
 	$.ajax({
 		url:"sceancesAjax/get/"+$id,
 		method:"get",
 		success: function( data ){
 			var data = JSON.parse(data);
-			console.log(data);
+
+			var sDate = euDateForm(data.date);
+
 			$popupModifierThis.find('#cours').find('option[value="'+data.coursSlug+'"]').attr('selected','selected');
-			$popupModifierThis.find('#jour').find('option[value="'+data.day+'"]').attr('selected','selected');
+			$popupModifierThis.find('#date').attr('value',sDate);
 			$popupModifierThis.find('input#debut').attr('value',data.date_start);
 			$popupModifierThis.find('input#fin').attr('value',data.date_end);
+			$popupModifierThis.find('input.sceance').attr('value',data.sceanceId);
 		}
 	})
 };

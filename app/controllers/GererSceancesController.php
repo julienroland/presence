@@ -177,6 +177,55 @@
 		}
 
 
+	}
+	public function modifierAjax($data)
+	{
+		$dataExplode = explode('&',$data);
+		$cours = explode('=',$dataExplode[1])[1];
+		$date = explode('=',$dataExplode[2])[1];  
+		$start = explode('=',$dataExplode[3])[1]; 
+		$end = explode('=',$dataExplode[4])[1]; 
+		$sceanceId = intval(explode('=',$dataExplode[5])[1]); 
+		
+		$date = Helpers::dateNaForm($date);
+		
+		$input = array(
+			'cours'=>$cours,
+			'date'=>$date,
+			'start'=>$start,
+			'end'=>$end,
+			'sceance'=>$sceanceId,
+			);
+		$rules = array(
+			'cours'=>'required',
+			'date'=>'required|date',
+			'start'=>array('required','regex:/^[0-9]{1,2}\:[0-9]{2}/'),
+			'end'=>array('required','regex:/^[0-9]{1,2}\:[0-9]{2}/'),
+			'sceance'=>'required|numeric',
+			);
+
+		$validation = Validator::make($input, $rules);
+
+		if ($validation->passes())
+		{
+			$coursId = Cours::whereSlug($cours)->lists('id');
+			$sceance = Sceance::find($sceanceId);
+			$dateCarbon = Helpers::createCarbonDate($date);
+			$jour = Helpers::humanDay($dateCarbon->dayOfWeek);
+			$dayId = Day::whereNom($jour)->lists('id');
+			
+			$sceance->update( array(
+				'cours_id'=>$coursId[0],
+				'day_id'=>$dayId[0],
+				'date'=>$date,
+				'date_start'=>$start,
+				'date_end'=>$end,
+				));
+			$sceanceAndCours = Sceance::getCoursOfSceance($sceance->id);
+			return json_encode($sceanceAndCours);
+		}
+
+
 	}	
 
 /**
